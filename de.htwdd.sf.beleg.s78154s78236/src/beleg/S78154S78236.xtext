@@ -1,0 +1,9 @@
+grammar beleg.S78154S78236 with org.eclipse.xtext.common.Terminals
+
+generate s78154S78236 "http://www.S78154S78236.beleg"
+
+Model:
+	greetings+=Greeting*;
+	
+Greeting:
+	'Hello' name=ID '!';
