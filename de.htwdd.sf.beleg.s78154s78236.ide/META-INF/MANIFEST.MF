@@ -7,5 +7,9 @@ Bundle-SymbolicName: de.htwdd.sf.beleg.s78154s78236.ide; singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: de.htwdd.sf.beleg.s78154s78236,
  org.eclipse.xtext.ide,
- org.eclipse.xtext.xbase.ide
+ org.eclipse.xtext.xbase.ide,
+ org.antlr.runtime
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: beleg.ide.contentassist.antlr,
+ beleg.ide.contentassist.antlr.internal
+

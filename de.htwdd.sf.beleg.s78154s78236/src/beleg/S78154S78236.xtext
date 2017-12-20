@@ -3,7 +3,7 @@ grammar beleg.S78154S78236 with org.eclipse.xtext.common.Terminals
 generate s78154S78236 "http://www.S78154S78236.beleg"
 
 Model:
-	dsl+=PrologDsl*;
+	dsl+=PrologDsl;
 	
 
 PrologDsl:
@@ -19,53 +19,82 @@ Exquery:
 ;
 
 Query:
-	predicates+=Predicate (","predicates+=Predicate)*
+	predicate = Predicate (epredicates+=EPredicate)*
+;
+
+EPredicate:
+	","predicate = Predicate
 ;
 
 Clause:
-	fact=Fact|rule=Rule
+	predicate = Predicate (fact=Fact|rule=Rule)
 ;
 
 Fact:
-	predicate=Predicate "."
+	 "."
 ;
 
 Rule:
-	predicate=Predicate ":-" "(" terms+=Term ("," terms+=Term)* ")"
+	":-" "(" term=Term (eterms+=ETerm)* ")"
 ;
 
+
 Predicate:
-	functor=Functor "(" terms+=Term ("," terms+=Term)* ")"
+	functor=Functor "(" term=Term (eterms+=ETerm)* ")"
 ;
 
 Functor:
 	ident=Ident
 ;
 
-
-
 Term:
 	atom=Atom | list=List
 ;
 
+ETerm:
+	"," term=Term
+;
+
 Atom:
-	ident=Ident|number=NUMBER|variable=VARIABLE
+	ident=Ident|number=NUMBER1|evar=EVar
 ;
 
 List:
-	"[]"|nonEmptyList=NonEmptyList
+	empty=EmptyList|nonEmptyList=NonEmptyList
+;
+
+EmptyList:
+	{EmptyList}'[]'
 ;
 
 NonEmptyList:
-	("[" folge=Folge "]") | ("[" atom=Atom "|" term=Term "]")
+	(efolge=EFolge) | (elist=EList)
 ;
 
 Folge:
-	atoms+=Atom ("," atoms+=Atom)*
+	atom=Atom (eatoms+=EAtom)*
+;
+
+
+EFolge:
+	'[' folge=Folge ']'
+;
+
+
+EList:
+	'[' atom=Atom "|" term=Term ']'
+;
+
+EAtom:
+	"," atom=Atom
 ;
 
 Ident:
 	ident=ID
+;
+
+EVar:
+	variable=VARIABLE
 ;
 
 //Terminale
@@ -75,8 +104,8 @@ terminal ID:
 	'^'? ('a'..'z') ('A'..'Z'|'a'..'z'|'0'..'9'|'_')*
 ;
 
-NUMBER:
-	number=INT
+terminal NUMBER1:
+	INT
 ;
 
 terminal VARIABLE:
