@@ -3,7 +3,83 @@ grammar beleg.S78154S78236 with org.eclipse.xtext.common.Terminals
 generate s78154S78236 "http://www.S78154S78236.beleg"
 
 Model:
-	greetings+=Greeting*;
+	dsl+=PrologDsl*;
 	
-Greeting:
-	'Hello' name=ID '!';
+
+PrologDsl:
+	program=Program exQuery=Exquery
+;
+
+Program:
+	(clauses+=Clause)+
+;
+
+Exquery:
+	"?-" query=Query "."
+;
+
+Query:
+	predicates+=Predicate (","predicates+=Predicate)*
+;
+
+Clause:
+	fact=Fact|rule=Rule
+;
+
+Fact:
+	predicate=Predicate "."
+;
+
+Rule:
+	predicate=Predicate ":-" "(" terms+=Term ("," terms+=Term)* ")"
+;
+
+Predicate:
+	functor=Functor "(" terms+=Term ("," terms+=Term)* ")"
+;
+
+Functor:
+	ident=Ident
+;
+
+
+
+Term:
+	atom=Atom | list=List
+;
+
+Atom:
+	ident=Ident|number=NUMBER|variable=VARIABLE
+;
+
+List:
+	"[]"|nonEmptyList=NonEmptyList
+;
+
+NonEmptyList:
+	("[" folge=Folge "]") | ("[" atom=Atom "|" term=Term "]")
+;
+
+Folge:
+	atoms+=Atom ("," atoms+=Atom)*
+;
+
+Ident:
+	ident=ID
+;
+
+//Terminale
+
+@Override 
+terminal ID:
+	'^'? ('a'..'z') ('A'..'Z'|'a'..'z'|'0'..'9'|'_')*
+;
+
+NUMBER:
+	number=INT
+;
+
+terminal VARIABLE:
+	'A'..'Z'
+;
+

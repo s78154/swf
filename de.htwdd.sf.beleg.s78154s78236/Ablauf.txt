@@ -1,3 +1,9 @@
 1.
 - xText-Projekt anlegen
-- model-Ordner erstellen und darin EMF Generator Model anlegen
+- Grammatik definiert
+
+
+
+
+
+-Fragen: kann terminal Variable direkt verwendet werden? Terminale in Groﬂbuchstaben?
