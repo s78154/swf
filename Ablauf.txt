@@ -1,3 +1,0 @@
-1.
-- xText-Projekt anlegen
-- model-Ordner erstellen und darin EMF Generator Model anlegen
