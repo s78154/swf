@@ -26,4 +26,5 @@ Export-Package: beleg.s78154S78236.impl,
  beleg.s78154S78236,
  beleg,
  beleg.validation
-Import-Package: org.apache.log4j
+Import-Package: org.apache.log4j,
+ org.eclipse.emf.ecore

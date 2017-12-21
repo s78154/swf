@@ -3,19 +3,52 @@
  */
 package beleg.generator;
 
+import org.eclipse.emf.common.util.TreeIterator;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
+import org.eclipse.xtext.xbase.lib.IteratorExtensions;
+
+import beleg.s78154S78236.Model;
 
 /**
  * Generates code from your model files on save.
  * 
- * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#code-generation
+ * See
+ * https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#code-generation
  */
 @SuppressWarnings("all")
 public class S78154S78236Generator extends AbstractGenerator {
-  @Override
-  public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
-  }
+
+	String code;
+
+	@Override
+	public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
+		code = "";
+
+		TreeIterator<EObject> eList = resource.getAllContents();
+		// Iterable<EObject> eIterable = IteratorExtensions.toIterable(eList);
+		// Iterable<Model> filterObject =
+
+		while (eList.hasNext()) {
+			EObject e = eList.next();
+			if (e instanceof Model) {
+				System.out.print("Juhu es klappt");
+				Model model = (Model) e;
+				dump(model);
+			}
+		}
+
+	}
+
+	public void dump(Model e) {
+		
+		concat("Das ist ein voll cooles Model");
+	}
+	
+	public String concat(String input) {
+		return (code += input);
+	}
 }
