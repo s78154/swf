@@ -51,7 +51,7 @@ class S78154S78236LabelProvider extends DefaultEObjectLabelProvider {
 	}
 	
 	def text(Fact e){
-		return getText(e)
+		return "."
 	}
 	
 	def text(Rule e){
@@ -60,6 +60,10 @@ class S78154S78236LabelProvider extends DefaultEObjectLabelProvider {
 	
 	def text(Predicate e){
 		return "Predicate"
+	}
+	
+	def text(EPredicate e){
+		return "EPredicate"
 	}
 	
 	def text(Functor e){
@@ -71,35 +75,33 @@ class S78154S78236LabelProvider extends DefaultEObjectLabelProvider {
 	}
 	
 	def text(ETerm e){
-		return "Term"
+		return "ETerm"
 	}
 	
 	def text(Atom e){
-		if(e.ident != null)
+		if(e.ident !== null)
 		{
 			return getText(e.ident)
 		}
-		else if(e.number != null)
+		else if(e.number !== null)
 		{
 			return getText(e.number)	
 		}
-		else if(e.evar != null)
+		else if(e.evar !== null)
 		{
 			return getText(e.evar)
 		}
-		//return "Atom: "
 	}
 	
 	def text(List e){
-		if(e.empty != null)
+		if(e.empty !== null)
 		{
 			return getText(e.empty)
 		}
-		else if (e.nonEmptyList != null)
+		else if (e.nonEmptyList !== null)
 		{
 			return getText(e.nonEmptyList)
 		}
-		//return "List:"
 	}
 	
 	def text(EmptyList e){
@@ -115,16 +117,16 @@ class S78154S78236LabelProvider extends DefaultEObjectLabelProvider {
 	}
 	
 	def text(EFolge e){
-		return "Folge"
+		return "EFolge"
 	}
 	
 	def text(EList e)
 	{
-		return "List"
+		return "EList"
 	}
 	
 	def text(EAtom e){
-		return "Atom"
+		return "EAtom"
 	}
 	
 	def text(Ident e){

@@ -23,7 +23,7 @@ Query:
 ;
 
 EPredicate:
-	","predicate = Predicate
+	"," predicate = Predicate
 ;
 
 Clause:
@@ -35,7 +35,7 @@ Fact:
 ;
 
 Rule:
-	":-" "(" term=Term (eterms+=ETerm)* ")"
+	":-" query = Query "."
 ;
 
 

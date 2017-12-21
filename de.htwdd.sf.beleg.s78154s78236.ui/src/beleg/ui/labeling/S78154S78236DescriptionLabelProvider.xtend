@@ -4,7 +4,6 @@
 package beleg.ui.labeling
 
 import org.eclipse.xtext.ui.label.DefaultDescriptionLabelProvider
-import beleg.s78154S78236.*
 
 /**
  * Provides labels for IEObjectDescriptions and IResourceDescriptions.
