@@ -62,7 +62,7 @@ public class S78154S78236LabelProvider extends DefaultEObjectLabelProvider {
   }
   
   public String text(final Fact e) {
-    return this.getText(e);
+    return this.getText(e.getFact());
   }
   
   public String text(final Rule e) {
