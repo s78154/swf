@@ -51,7 +51,7 @@ class S78154S78236LabelProvider extends DefaultEObjectLabelProvider {
 	}
 	
 	def text(Fact e){
-		return getText(e.fact)
+		return getText(e)
 	}
 	
 	def text(Rule e){
