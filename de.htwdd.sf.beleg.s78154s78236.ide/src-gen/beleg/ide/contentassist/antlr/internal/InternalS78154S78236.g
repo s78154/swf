@@ -65,9 +65,9 @@ ruleModel
 	}
 	:
 	(
-		{ before(grammarAccess.getModelAccess().getDslAssignment()); }
-		(rule__Model__DslAssignment)
-		{ after(grammarAccess.getModelAccess().getDslAssignment()); }
+		{ before(grammarAccess.getModelAccess().getModelAssignment()); }
+		(rule__Model__ModelAssignment)
+		{ after(grammarAccess.getModelAccess().getModelAssignment()); }
 	)
 ;
 finally {
@@ -247,9 +247,9 @@ ruleFact
 	}
 	:
 	(
-		{ before(grammarAccess.getFactAccess().getFullStopKeyword()); }
-		'.'
-		{ after(grammarAccess.getFactAccess().getFullStopKeyword()); }
+		{ before(grammarAccess.getFactAccess().getFactAssignment()); }
+		(rule__Fact__FactAssignment)
+		{ after(grammarAccess.getFactAccess().getFactAssignment()); }
 	)
 ;
 finally {
@@ -1741,15 +1741,15 @@ finally {
 }
 
 
-rule__Model__DslAssignment
+rule__Model__ModelAssignment
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getModelAccess().getDslPrologDslParserRuleCall_0()); }
+		{ before(grammarAccess.getModelAccess().getModelPrologDslParserRuleCall_0()); }
 		rulePrologDsl
-		{ after(grammarAccess.getModelAccess().getDslPrologDslParserRuleCall_0()); }
+		{ after(grammarAccess.getModelAccess().getModelPrologDslParserRuleCall_0()); }
 	)
 ;
 finally {
@@ -1900,6 +1900,25 @@ rule__Clause__RuleAssignment_1_1
 		{ before(grammarAccess.getClauseAccess().getRuleRuleParserRuleCall_1_1_0()); }
 		ruleRule
 		{ after(grammarAccess.getClauseAccess().getRuleRuleParserRuleCall_1_1_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Fact__FactAssignment
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getFactAccess().getFactFullStopKeyword_0()); }
+		(
+			{ before(grammarAccess.getFactAccess().getFactFullStopKeyword_0()); }
+			'.'
+			{ after(grammarAccess.getFactAccess().getFactFullStopKeyword_0()); }
+		)
+		{ after(grammarAccess.getFactAccess().getFactFullStopKeyword_0()); }
 	)
 ;
 finally {
@@ -2062,9 +2081,9 @@ rule__Atom__NumberAssignment_1
 	}
 :
 	(
-		{ before(grammarAccess.getAtomAccess().getNumberNUMBER1TerminalRuleCall_1_0()); }
-		RULE_NUMBER1
-		{ after(grammarAccess.getAtomAccess().getNumberNUMBER1TerminalRuleCall_1_0()); }
+		{ before(grammarAccess.getAtomAccess().getNumberNUMBERTerminalRuleCall_1_0()); }
+		RULE_NUMBER
+		{ after(grammarAccess.getAtomAccess().getNumberNUMBERTerminalRuleCall_1_0()); }
 	)
 ;
 finally {
@@ -2268,7 +2287,7 @@ finally {
 
 RULE_ID : '^'? 'a'..'z' ('A'..'Z'|'a'..'z'|'0'..'9'|'_')*;
 
-RULE_NUMBER1 : RULE_INT;
+RULE_NUMBER : RULE_INT;
 
 RULE_VARIABLE : 'A'..'Z';
 

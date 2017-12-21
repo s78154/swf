@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalS78154S78236Parser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_NUMBER1", "RULE_ID", "RULE_VARIABLE", "RULE_INT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'.'", "'?-'", "','", "':-'", "'('", "')'", "'[]'", "'['", "']'", "'|'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_NUMBER", "RULE_ID", "RULE_VARIABLE", "RULE_INT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'?-'", "'.'", "','", "':-'", "'('", "')'", "'[]'", "'['", "']'", "'|'"
     };
     public static final int RULE_STRING=8;
     public static final int RULE_SL_COMMENT=10;
@@ -38,7 +38,7 @@ public class InternalS78154S78236Parser extends AbstractInternalContentAssistPar
     public static final int RULE_WS=11;
     public static final int RULE_VARIABLE=6;
     public static final int RULE_ANY_OTHER=12;
-    public static final int RULE_NUMBER1=4;
+    public static final int RULE_NUMBER=4;
     public static final int RULE_INT=7;
     public static final int T__22=22;
     public static final int RULE_ML_COMMENT=9;
@@ -111,31 +111,31 @@ public class InternalS78154S78236Parser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "ruleModel"
-    // InternalS78154S78236.g:62:1: ruleModel : ( ( rule__Model__DslAssignment ) ) ;
+    // InternalS78154S78236.g:62:1: ruleModel : ( ( rule__Model__ModelAssignment ) ) ;
     public final void ruleModel() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalS78154S78236.g:66:2: ( ( ( rule__Model__DslAssignment ) ) )
-            // InternalS78154S78236.g:67:2: ( ( rule__Model__DslAssignment ) )
+            // InternalS78154S78236.g:66:2: ( ( ( rule__Model__ModelAssignment ) ) )
+            // InternalS78154S78236.g:67:2: ( ( rule__Model__ModelAssignment ) )
             {
-            // InternalS78154S78236.g:67:2: ( ( rule__Model__DslAssignment ) )
-            // InternalS78154S78236.g:68:3: ( rule__Model__DslAssignment )
+            // InternalS78154S78236.g:67:2: ( ( rule__Model__ModelAssignment ) )
+            // InternalS78154S78236.g:68:3: ( rule__Model__ModelAssignment )
             {
-             before(grammarAccess.getModelAccess().getDslAssignment()); 
-            // InternalS78154S78236.g:69:3: ( rule__Model__DslAssignment )
-            // InternalS78154S78236.g:69:4: rule__Model__DslAssignment
+             before(grammarAccess.getModelAccess().getModelAssignment()); 
+            // InternalS78154S78236.g:69:3: ( rule__Model__ModelAssignment )
+            // InternalS78154S78236.g:69:4: rule__Model__ModelAssignment
             {
             pushFollow(FOLLOW_2);
-            rule__Model__DslAssignment();
+            rule__Model__ModelAssignment();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getModelAccess().getDslAssignment()); 
+             after(grammarAccess.getModelAccess().getModelAssignment()); 
 
             }
 
@@ -693,21 +693,31 @@ public class InternalS78154S78236Parser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "ruleFact"
-    // InternalS78154S78236.g:244:1: ruleFact : ( '.' ) ;
+    // InternalS78154S78236.g:244:1: ruleFact : ( ( rule__Fact__FactAssignment ) ) ;
     public final void ruleFact() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalS78154S78236.g:248:2: ( ( '.' ) )
-            // InternalS78154S78236.g:249:2: ( '.' )
+            // InternalS78154S78236.g:248:2: ( ( ( rule__Fact__FactAssignment ) ) )
+            // InternalS78154S78236.g:249:2: ( ( rule__Fact__FactAssignment ) )
             {
-            // InternalS78154S78236.g:249:2: ( '.' )
-            // InternalS78154S78236.g:250:3: '.'
+            // InternalS78154S78236.g:249:2: ( ( rule__Fact__FactAssignment ) )
+            // InternalS78154S78236.g:250:3: ( rule__Fact__FactAssignment )
             {
-             before(grammarAccess.getFactAccess().getFullStopKeyword()); 
-            match(input,13,FOLLOW_2); 
-             after(grammarAccess.getFactAccess().getFullStopKeyword()); 
+             before(grammarAccess.getFactAccess().getFactAssignment()); 
+            // InternalS78154S78236.g:251:3: ( rule__Fact__FactAssignment )
+            // InternalS78154S78236.g:251:4: rule__Fact__FactAssignment
+            {
+            pushFollow(FOLLOW_2);
+            rule__Fact__FactAssignment();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getFactAccess().getFactAssignment()); 
 
             }
 
@@ -1895,7 +1905,7 @@ public class InternalS78154S78236Parser extends AbstractInternalContentAssistPar
             int alt2=2;
             int LA2_0 = input.LA(1);
 
-            if ( (LA2_0==13) ) {
+            if ( (LA2_0==14) ) {
                 alt2=1;
             }
             else if ( (LA2_0==16) ) {
@@ -1986,7 +1996,7 @@ public class InternalS78154S78236Parser extends AbstractInternalContentAssistPar
             int alt3=2;
             int LA3_0 = input.LA(1);
 
-            if ( ((LA3_0>=RULE_NUMBER1 && LA3_0<=RULE_VARIABLE)) ) {
+            if ( ((LA3_0>=RULE_NUMBER && LA3_0<=RULE_VARIABLE)) ) {
                 alt3=1;
             }
             else if ( ((LA3_0>=19 && LA3_0<=20)) ) {
@@ -2081,7 +2091,7 @@ public class InternalS78154S78236Parser extends AbstractInternalContentAssistPar
                 alt4=1;
                 }
                 break;
-            case RULE_NUMBER1:
+            case RULE_NUMBER:
                 {
                 alt4=2;
                 }
@@ -2313,15 +2323,15 @@ public class InternalS78154S78236Parser extends AbstractInternalContentAssistPar
                     }
                     }
                     break;
-                case RULE_NUMBER1:
+                case RULE_NUMBER:
                     {
                     int LA6_3 = input.LA(3);
 
-                    if ( (LA6_3==22) ) {
-                        alt6=2;
-                    }
-                    else if ( (LA6_3==15||LA6_3==21) ) {
+                    if ( (LA6_3==15||LA6_3==21) ) {
                         alt6=1;
+                    }
+                    else if ( (LA6_3==22) ) {
+                        alt6=2;
                     }
                     else {
                         NoViableAltException nvae =
@@ -2335,11 +2345,11 @@ public class InternalS78154S78236Parser extends AbstractInternalContentAssistPar
                     {
                     int LA6_4 = input.LA(3);
 
-                    if ( (LA6_4==22) ) {
-                        alt6=2;
-                    }
-                    else if ( (LA6_4==15||LA6_4==21) ) {
+                    if ( (LA6_4==15||LA6_4==21) ) {
                         alt6=1;
+                    }
+                    else if ( (LA6_4==22) ) {
+                        alt6=2;
                     }
                     else {
                         NoViableAltException nvae =
@@ -2648,7 +2658,7 @@ public class InternalS78154S78236Parser extends AbstractInternalContentAssistPar
             // InternalS78154S78236.g:817:2: '?-'
             {
              before(grammarAccess.getExqueryAccess().getQuestionMarkHyphenMinusKeyword_0()); 
-            match(input,14,FOLLOW_2); 
+            match(input,13,FOLLOW_2); 
              after(grammarAccess.getExqueryAccess().getQuestionMarkHyphenMinusKeyword_0()); 
 
             }
@@ -2803,7 +2813,7 @@ public class InternalS78154S78236Parser extends AbstractInternalContentAssistPar
             // InternalS78154S78236.g:870:2: '.'
             {
              before(grammarAccess.getExqueryAccess().getFullStopKeyword_2()); 
-            match(input,13,FOLLOW_2); 
+            match(input,14,FOLLOW_2); 
              after(grammarAccess.getExqueryAccess().getFullStopKeyword_2()); 
 
             }
@@ -5413,9 +5423,9 @@ public class InternalS78154S78236Parser extends AbstractInternalContentAssistPar
     // $ANTLR end "rule__EAtom__Group__1__Impl"
 
 
-    // $ANTLR start "rule__Model__DslAssignment"
-    // InternalS78154S78236.g:1744:1: rule__Model__DslAssignment : ( rulePrologDsl ) ;
-    public final void rule__Model__DslAssignment() throws RecognitionException {
+    // $ANTLR start "rule__Model__ModelAssignment"
+    // InternalS78154S78236.g:1744:1: rule__Model__ModelAssignment : ( rulePrologDsl ) ;
+    public final void rule__Model__ModelAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -5426,13 +5436,13 @@ public class InternalS78154S78236Parser extends AbstractInternalContentAssistPar
             // InternalS78154S78236.g:1749:2: ( rulePrologDsl )
             // InternalS78154S78236.g:1750:3: rulePrologDsl
             {
-             before(grammarAccess.getModelAccess().getDslPrologDslParserRuleCall_0()); 
+             before(grammarAccess.getModelAccess().getModelPrologDslParserRuleCall_0()); 
             pushFollow(FOLLOW_2);
             rulePrologDsl();
 
             state._fsp--;
 
-             after(grammarAccess.getModelAccess().getDslPrologDslParserRuleCall_0()); 
+             after(grammarAccess.getModelAccess().getModelPrologDslParserRuleCall_0()); 
 
             }
 
@@ -5451,7 +5461,7 @@ public class InternalS78154S78236Parser extends AbstractInternalContentAssistPar
         }
         return ;
     }
-    // $ANTLR end "rule__Model__DslAssignment"
+    // $ANTLR end "rule__Model__ModelAssignment"
 
 
     // $ANTLR start "rule__PrologDsl__ProgramAssignment_0"
@@ -5864,18 +5874,63 @@ public class InternalS78154S78236Parser extends AbstractInternalContentAssistPar
     // $ANTLR end "rule__Clause__RuleAssignment_1_1"
 
 
+    // $ANTLR start "rule__Fact__FactAssignment"
+    // InternalS78154S78236.g:1909:1: rule__Fact__FactAssignment : ( ( '.' ) ) ;
+    public final void rule__Fact__FactAssignment() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalS78154S78236.g:1913:1: ( ( ( '.' ) ) )
+            // InternalS78154S78236.g:1914:2: ( ( '.' ) )
+            {
+            // InternalS78154S78236.g:1914:2: ( ( '.' ) )
+            // InternalS78154S78236.g:1915:3: ( '.' )
+            {
+             before(grammarAccess.getFactAccess().getFactFullStopKeyword_0()); 
+            // InternalS78154S78236.g:1916:3: ( '.' )
+            // InternalS78154S78236.g:1917:4: '.'
+            {
+             before(grammarAccess.getFactAccess().getFactFullStopKeyword_0()); 
+            match(input,14,FOLLOW_2); 
+             after(grammarAccess.getFactAccess().getFactFullStopKeyword_0()); 
+
+            }
+
+             after(grammarAccess.getFactAccess().getFactFullStopKeyword_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Fact__FactAssignment"
+
+
     // $ANTLR start "rule__Rule__TermAssignment_2"
-    // InternalS78154S78236.g:1909:1: rule__Rule__TermAssignment_2 : ( ruleTerm ) ;
+    // InternalS78154S78236.g:1928:1: rule__Rule__TermAssignment_2 : ( ruleTerm ) ;
     public final void rule__Rule__TermAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalS78154S78236.g:1913:1: ( ( ruleTerm ) )
-            // InternalS78154S78236.g:1914:2: ( ruleTerm )
+            // InternalS78154S78236.g:1932:1: ( ( ruleTerm ) )
+            // InternalS78154S78236.g:1933:2: ( ruleTerm )
             {
-            // InternalS78154S78236.g:1914:2: ( ruleTerm )
-            // InternalS78154S78236.g:1915:3: ruleTerm
+            // InternalS78154S78236.g:1933:2: ( ruleTerm )
+            // InternalS78154S78236.g:1934:3: ruleTerm
             {
              before(grammarAccess.getRuleAccess().getTermTermParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -5906,17 +5961,17 @@ public class InternalS78154S78236Parser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__Rule__EtermsAssignment_3"
-    // InternalS78154S78236.g:1924:1: rule__Rule__EtermsAssignment_3 : ( ruleETerm ) ;
+    // InternalS78154S78236.g:1943:1: rule__Rule__EtermsAssignment_3 : ( ruleETerm ) ;
     public final void rule__Rule__EtermsAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalS78154S78236.g:1928:1: ( ( ruleETerm ) )
-            // InternalS78154S78236.g:1929:2: ( ruleETerm )
+            // InternalS78154S78236.g:1947:1: ( ( ruleETerm ) )
+            // InternalS78154S78236.g:1948:2: ( ruleETerm )
             {
-            // InternalS78154S78236.g:1929:2: ( ruleETerm )
-            // InternalS78154S78236.g:1930:3: ruleETerm
+            // InternalS78154S78236.g:1948:2: ( ruleETerm )
+            // InternalS78154S78236.g:1949:3: ruleETerm
             {
              before(grammarAccess.getRuleAccess().getEtermsETermParserRuleCall_3_0()); 
             pushFollow(FOLLOW_2);
@@ -5947,17 +6002,17 @@ public class InternalS78154S78236Parser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__Predicate__FunctorAssignment_0"
-    // InternalS78154S78236.g:1939:1: rule__Predicate__FunctorAssignment_0 : ( ruleFunctor ) ;
+    // InternalS78154S78236.g:1958:1: rule__Predicate__FunctorAssignment_0 : ( ruleFunctor ) ;
     public final void rule__Predicate__FunctorAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalS78154S78236.g:1943:1: ( ( ruleFunctor ) )
-            // InternalS78154S78236.g:1944:2: ( ruleFunctor )
+            // InternalS78154S78236.g:1962:1: ( ( ruleFunctor ) )
+            // InternalS78154S78236.g:1963:2: ( ruleFunctor )
             {
-            // InternalS78154S78236.g:1944:2: ( ruleFunctor )
-            // InternalS78154S78236.g:1945:3: ruleFunctor
+            // InternalS78154S78236.g:1963:2: ( ruleFunctor )
+            // InternalS78154S78236.g:1964:3: ruleFunctor
             {
              before(grammarAccess.getPredicateAccess().getFunctorFunctorParserRuleCall_0_0()); 
             pushFollow(FOLLOW_2);
@@ -5988,17 +6043,17 @@ public class InternalS78154S78236Parser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__Predicate__TermAssignment_2"
-    // InternalS78154S78236.g:1954:1: rule__Predicate__TermAssignment_2 : ( ruleTerm ) ;
+    // InternalS78154S78236.g:1973:1: rule__Predicate__TermAssignment_2 : ( ruleTerm ) ;
     public final void rule__Predicate__TermAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalS78154S78236.g:1958:1: ( ( ruleTerm ) )
-            // InternalS78154S78236.g:1959:2: ( ruleTerm )
+            // InternalS78154S78236.g:1977:1: ( ( ruleTerm ) )
+            // InternalS78154S78236.g:1978:2: ( ruleTerm )
             {
-            // InternalS78154S78236.g:1959:2: ( ruleTerm )
-            // InternalS78154S78236.g:1960:3: ruleTerm
+            // InternalS78154S78236.g:1978:2: ( ruleTerm )
+            // InternalS78154S78236.g:1979:3: ruleTerm
             {
              before(grammarAccess.getPredicateAccess().getTermTermParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -6029,17 +6084,17 @@ public class InternalS78154S78236Parser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__Predicate__EtermsAssignment_3"
-    // InternalS78154S78236.g:1969:1: rule__Predicate__EtermsAssignment_3 : ( ruleETerm ) ;
+    // InternalS78154S78236.g:1988:1: rule__Predicate__EtermsAssignment_3 : ( ruleETerm ) ;
     public final void rule__Predicate__EtermsAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalS78154S78236.g:1973:1: ( ( ruleETerm ) )
-            // InternalS78154S78236.g:1974:2: ( ruleETerm )
+            // InternalS78154S78236.g:1992:1: ( ( ruleETerm ) )
+            // InternalS78154S78236.g:1993:2: ( ruleETerm )
             {
-            // InternalS78154S78236.g:1974:2: ( ruleETerm )
-            // InternalS78154S78236.g:1975:3: ruleETerm
+            // InternalS78154S78236.g:1993:2: ( ruleETerm )
+            // InternalS78154S78236.g:1994:3: ruleETerm
             {
              before(grammarAccess.getPredicateAccess().getEtermsETermParserRuleCall_3_0()); 
             pushFollow(FOLLOW_2);
@@ -6070,17 +6125,17 @@ public class InternalS78154S78236Parser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__Functor__IdentAssignment"
-    // InternalS78154S78236.g:1984:1: rule__Functor__IdentAssignment : ( ruleIdent ) ;
+    // InternalS78154S78236.g:2003:1: rule__Functor__IdentAssignment : ( ruleIdent ) ;
     public final void rule__Functor__IdentAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalS78154S78236.g:1988:1: ( ( ruleIdent ) )
-            // InternalS78154S78236.g:1989:2: ( ruleIdent )
+            // InternalS78154S78236.g:2007:1: ( ( ruleIdent ) )
+            // InternalS78154S78236.g:2008:2: ( ruleIdent )
             {
-            // InternalS78154S78236.g:1989:2: ( ruleIdent )
-            // InternalS78154S78236.g:1990:3: ruleIdent
+            // InternalS78154S78236.g:2008:2: ( ruleIdent )
+            // InternalS78154S78236.g:2009:3: ruleIdent
             {
              before(grammarAccess.getFunctorAccess().getIdentIdentParserRuleCall_0()); 
             pushFollow(FOLLOW_2);
@@ -6111,17 +6166,17 @@ public class InternalS78154S78236Parser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__Term__AtomAssignment_0"
-    // InternalS78154S78236.g:1999:1: rule__Term__AtomAssignment_0 : ( ruleAtom ) ;
+    // InternalS78154S78236.g:2018:1: rule__Term__AtomAssignment_0 : ( ruleAtom ) ;
     public final void rule__Term__AtomAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalS78154S78236.g:2003:1: ( ( ruleAtom ) )
-            // InternalS78154S78236.g:2004:2: ( ruleAtom )
+            // InternalS78154S78236.g:2022:1: ( ( ruleAtom ) )
+            // InternalS78154S78236.g:2023:2: ( ruleAtom )
             {
-            // InternalS78154S78236.g:2004:2: ( ruleAtom )
-            // InternalS78154S78236.g:2005:3: ruleAtom
+            // InternalS78154S78236.g:2023:2: ( ruleAtom )
+            // InternalS78154S78236.g:2024:3: ruleAtom
             {
              before(grammarAccess.getTermAccess().getAtomAtomParserRuleCall_0_0()); 
             pushFollow(FOLLOW_2);
@@ -6152,17 +6207,17 @@ public class InternalS78154S78236Parser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__Term__ListAssignment_1"
-    // InternalS78154S78236.g:2014:1: rule__Term__ListAssignment_1 : ( ruleList ) ;
+    // InternalS78154S78236.g:2033:1: rule__Term__ListAssignment_1 : ( ruleList ) ;
     public final void rule__Term__ListAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalS78154S78236.g:2018:1: ( ( ruleList ) )
-            // InternalS78154S78236.g:2019:2: ( ruleList )
+            // InternalS78154S78236.g:2037:1: ( ( ruleList ) )
+            // InternalS78154S78236.g:2038:2: ( ruleList )
             {
-            // InternalS78154S78236.g:2019:2: ( ruleList )
-            // InternalS78154S78236.g:2020:3: ruleList
+            // InternalS78154S78236.g:2038:2: ( ruleList )
+            // InternalS78154S78236.g:2039:3: ruleList
             {
              before(grammarAccess.getTermAccess().getListListParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -6193,17 +6248,17 @@ public class InternalS78154S78236Parser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__ETerm__TermAssignment_1"
-    // InternalS78154S78236.g:2029:1: rule__ETerm__TermAssignment_1 : ( ruleTerm ) ;
+    // InternalS78154S78236.g:2048:1: rule__ETerm__TermAssignment_1 : ( ruleTerm ) ;
     public final void rule__ETerm__TermAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalS78154S78236.g:2033:1: ( ( ruleTerm ) )
-            // InternalS78154S78236.g:2034:2: ( ruleTerm )
+            // InternalS78154S78236.g:2052:1: ( ( ruleTerm ) )
+            // InternalS78154S78236.g:2053:2: ( ruleTerm )
             {
-            // InternalS78154S78236.g:2034:2: ( ruleTerm )
-            // InternalS78154S78236.g:2035:3: ruleTerm
+            // InternalS78154S78236.g:2053:2: ( ruleTerm )
+            // InternalS78154S78236.g:2054:3: ruleTerm
             {
              before(grammarAccess.getETermAccess().getTermTermParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -6234,17 +6289,17 @@ public class InternalS78154S78236Parser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__Atom__IdentAssignment_0"
-    // InternalS78154S78236.g:2044:1: rule__Atom__IdentAssignment_0 : ( ruleIdent ) ;
+    // InternalS78154S78236.g:2063:1: rule__Atom__IdentAssignment_0 : ( ruleIdent ) ;
     public final void rule__Atom__IdentAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalS78154S78236.g:2048:1: ( ( ruleIdent ) )
-            // InternalS78154S78236.g:2049:2: ( ruleIdent )
+            // InternalS78154S78236.g:2067:1: ( ( ruleIdent ) )
+            // InternalS78154S78236.g:2068:2: ( ruleIdent )
             {
-            // InternalS78154S78236.g:2049:2: ( ruleIdent )
-            // InternalS78154S78236.g:2050:3: ruleIdent
+            // InternalS78154S78236.g:2068:2: ( ruleIdent )
+            // InternalS78154S78236.g:2069:3: ruleIdent
             {
              before(grammarAccess.getAtomAccess().getIdentIdentParserRuleCall_0_0()); 
             pushFollow(FOLLOW_2);
@@ -6275,21 +6330,21 @@ public class InternalS78154S78236Parser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__Atom__NumberAssignment_1"
-    // InternalS78154S78236.g:2059:1: rule__Atom__NumberAssignment_1 : ( RULE_NUMBER1 ) ;
+    // InternalS78154S78236.g:2078:1: rule__Atom__NumberAssignment_1 : ( RULE_NUMBER ) ;
     public final void rule__Atom__NumberAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalS78154S78236.g:2063:1: ( ( RULE_NUMBER1 ) )
-            // InternalS78154S78236.g:2064:2: ( RULE_NUMBER1 )
+            // InternalS78154S78236.g:2082:1: ( ( RULE_NUMBER ) )
+            // InternalS78154S78236.g:2083:2: ( RULE_NUMBER )
             {
-            // InternalS78154S78236.g:2064:2: ( RULE_NUMBER1 )
-            // InternalS78154S78236.g:2065:3: RULE_NUMBER1
+            // InternalS78154S78236.g:2083:2: ( RULE_NUMBER )
+            // InternalS78154S78236.g:2084:3: RULE_NUMBER
             {
-             before(grammarAccess.getAtomAccess().getNumberNUMBER1TerminalRuleCall_1_0()); 
-            match(input,RULE_NUMBER1,FOLLOW_2); 
-             after(grammarAccess.getAtomAccess().getNumberNUMBER1TerminalRuleCall_1_0()); 
+             before(grammarAccess.getAtomAccess().getNumberNUMBERTerminalRuleCall_1_0()); 
+            match(input,RULE_NUMBER,FOLLOW_2); 
+             after(grammarAccess.getAtomAccess().getNumberNUMBERTerminalRuleCall_1_0()); 
 
             }
 
@@ -6312,17 +6367,17 @@ public class InternalS78154S78236Parser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__Atom__EvarAssignment_2"
-    // InternalS78154S78236.g:2074:1: rule__Atom__EvarAssignment_2 : ( ruleEVar ) ;
+    // InternalS78154S78236.g:2093:1: rule__Atom__EvarAssignment_2 : ( ruleEVar ) ;
     public final void rule__Atom__EvarAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalS78154S78236.g:2078:1: ( ( ruleEVar ) )
-            // InternalS78154S78236.g:2079:2: ( ruleEVar )
+            // InternalS78154S78236.g:2097:1: ( ( ruleEVar ) )
+            // InternalS78154S78236.g:2098:2: ( ruleEVar )
             {
-            // InternalS78154S78236.g:2079:2: ( ruleEVar )
-            // InternalS78154S78236.g:2080:3: ruleEVar
+            // InternalS78154S78236.g:2098:2: ( ruleEVar )
+            // InternalS78154S78236.g:2099:3: ruleEVar
             {
              before(grammarAccess.getAtomAccess().getEvarEVarParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -6353,17 +6408,17 @@ public class InternalS78154S78236Parser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__List__EmptyAssignment_0"
-    // InternalS78154S78236.g:2089:1: rule__List__EmptyAssignment_0 : ( ruleEmptyList ) ;
+    // InternalS78154S78236.g:2108:1: rule__List__EmptyAssignment_0 : ( ruleEmptyList ) ;
     public final void rule__List__EmptyAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalS78154S78236.g:2093:1: ( ( ruleEmptyList ) )
-            // InternalS78154S78236.g:2094:2: ( ruleEmptyList )
+            // InternalS78154S78236.g:2112:1: ( ( ruleEmptyList ) )
+            // InternalS78154S78236.g:2113:2: ( ruleEmptyList )
             {
-            // InternalS78154S78236.g:2094:2: ( ruleEmptyList )
-            // InternalS78154S78236.g:2095:3: ruleEmptyList
+            // InternalS78154S78236.g:2113:2: ( ruleEmptyList )
+            // InternalS78154S78236.g:2114:3: ruleEmptyList
             {
              before(grammarAccess.getListAccess().getEmptyEmptyListParserRuleCall_0_0()); 
             pushFollow(FOLLOW_2);
@@ -6394,17 +6449,17 @@ public class InternalS78154S78236Parser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__List__NonEmptyListAssignment_1"
-    // InternalS78154S78236.g:2104:1: rule__List__NonEmptyListAssignment_1 : ( ruleNonEmptyList ) ;
+    // InternalS78154S78236.g:2123:1: rule__List__NonEmptyListAssignment_1 : ( ruleNonEmptyList ) ;
     public final void rule__List__NonEmptyListAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalS78154S78236.g:2108:1: ( ( ruleNonEmptyList ) )
-            // InternalS78154S78236.g:2109:2: ( ruleNonEmptyList )
+            // InternalS78154S78236.g:2127:1: ( ( ruleNonEmptyList ) )
+            // InternalS78154S78236.g:2128:2: ( ruleNonEmptyList )
             {
-            // InternalS78154S78236.g:2109:2: ( ruleNonEmptyList )
-            // InternalS78154S78236.g:2110:3: ruleNonEmptyList
+            // InternalS78154S78236.g:2128:2: ( ruleNonEmptyList )
+            // InternalS78154S78236.g:2129:3: ruleNonEmptyList
             {
              before(grammarAccess.getListAccess().getNonEmptyListNonEmptyListParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -6435,17 +6490,17 @@ public class InternalS78154S78236Parser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__NonEmptyList__EfolgeAssignment_0"
-    // InternalS78154S78236.g:2119:1: rule__NonEmptyList__EfolgeAssignment_0 : ( ruleEFolge ) ;
+    // InternalS78154S78236.g:2138:1: rule__NonEmptyList__EfolgeAssignment_0 : ( ruleEFolge ) ;
     public final void rule__NonEmptyList__EfolgeAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalS78154S78236.g:2123:1: ( ( ruleEFolge ) )
-            // InternalS78154S78236.g:2124:2: ( ruleEFolge )
+            // InternalS78154S78236.g:2142:1: ( ( ruleEFolge ) )
+            // InternalS78154S78236.g:2143:2: ( ruleEFolge )
             {
-            // InternalS78154S78236.g:2124:2: ( ruleEFolge )
-            // InternalS78154S78236.g:2125:3: ruleEFolge
+            // InternalS78154S78236.g:2143:2: ( ruleEFolge )
+            // InternalS78154S78236.g:2144:3: ruleEFolge
             {
              before(grammarAccess.getNonEmptyListAccess().getEfolgeEFolgeParserRuleCall_0_0()); 
             pushFollow(FOLLOW_2);
@@ -6476,17 +6531,17 @@ public class InternalS78154S78236Parser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__NonEmptyList__ElistAssignment_1"
-    // InternalS78154S78236.g:2134:1: rule__NonEmptyList__ElistAssignment_1 : ( ruleEList ) ;
+    // InternalS78154S78236.g:2153:1: rule__NonEmptyList__ElistAssignment_1 : ( ruleEList ) ;
     public final void rule__NonEmptyList__ElistAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalS78154S78236.g:2138:1: ( ( ruleEList ) )
-            // InternalS78154S78236.g:2139:2: ( ruleEList )
+            // InternalS78154S78236.g:2157:1: ( ( ruleEList ) )
+            // InternalS78154S78236.g:2158:2: ( ruleEList )
             {
-            // InternalS78154S78236.g:2139:2: ( ruleEList )
-            // InternalS78154S78236.g:2140:3: ruleEList
+            // InternalS78154S78236.g:2158:2: ( ruleEList )
+            // InternalS78154S78236.g:2159:3: ruleEList
             {
              before(grammarAccess.getNonEmptyListAccess().getElistEListParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -6517,17 +6572,17 @@ public class InternalS78154S78236Parser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__Folge__AtomAssignment_0"
-    // InternalS78154S78236.g:2149:1: rule__Folge__AtomAssignment_0 : ( ruleAtom ) ;
+    // InternalS78154S78236.g:2168:1: rule__Folge__AtomAssignment_0 : ( ruleAtom ) ;
     public final void rule__Folge__AtomAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalS78154S78236.g:2153:1: ( ( ruleAtom ) )
-            // InternalS78154S78236.g:2154:2: ( ruleAtom )
+            // InternalS78154S78236.g:2172:1: ( ( ruleAtom ) )
+            // InternalS78154S78236.g:2173:2: ( ruleAtom )
             {
-            // InternalS78154S78236.g:2154:2: ( ruleAtom )
-            // InternalS78154S78236.g:2155:3: ruleAtom
+            // InternalS78154S78236.g:2173:2: ( ruleAtom )
+            // InternalS78154S78236.g:2174:3: ruleAtom
             {
              before(grammarAccess.getFolgeAccess().getAtomAtomParserRuleCall_0_0()); 
             pushFollow(FOLLOW_2);
@@ -6558,17 +6613,17 @@ public class InternalS78154S78236Parser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__Folge__EatomsAssignment_1"
-    // InternalS78154S78236.g:2164:1: rule__Folge__EatomsAssignment_1 : ( ruleEAtom ) ;
+    // InternalS78154S78236.g:2183:1: rule__Folge__EatomsAssignment_1 : ( ruleEAtom ) ;
     public final void rule__Folge__EatomsAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalS78154S78236.g:2168:1: ( ( ruleEAtom ) )
-            // InternalS78154S78236.g:2169:2: ( ruleEAtom )
+            // InternalS78154S78236.g:2187:1: ( ( ruleEAtom ) )
+            // InternalS78154S78236.g:2188:2: ( ruleEAtom )
             {
-            // InternalS78154S78236.g:2169:2: ( ruleEAtom )
-            // InternalS78154S78236.g:2170:3: ruleEAtom
+            // InternalS78154S78236.g:2188:2: ( ruleEAtom )
+            // InternalS78154S78236.g:2189:3: ruleEAtom
             {
              before(grammarAccess.getFolgeAccess().getEatomsEAtomParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -6599,17 +6654,17 @@ public class InternalS78154S78236Parser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__EFolge__FolgeAssignment_1"
-    // InternalS78154S78236.g:2179:1: rule__EFolge__FolgeAssignment_1 : ( ruleFolge ) ;
+    // InternalS78154S78236.g:2198:1: rule__EFolge__FolgeAssignment_1 : ( ruleFolge ) ;
     public final void rule__EFolge__FolgeAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalS78154S78236.g:2183:1: ( ( ruleFolge ) )
-            // InternalS78154S78236.g:2184:2: ( ruleFolge )
+            // InternalS78154S78236.g:2202:1: ( ( ruleFolge ) )
+            // InternalS78154S78236.g:2203:2: ( ruleFolge )
             {
-            // InternalS78154S78236.g:2184:2: ( ruleFolge )
-            // InternalS78154S78236.g:2185:3: ruleFolge
+            // InternalS78154S78236.g:2203:2: ( ruleFolge )
+            // InternalS78154S78236.g:2204:3: ruleFolge
             {
              before(grammarAccess.getEFolgeAccess().getFolgeFolgeParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -6640,17 +6695,17 @@ public class InternalS78154S78236Parser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__EList__AtomAssignment_1"
-    // InternalS78154S78236.g:2194:1: rule__EList__AtomAssignment_1 : ( ruleAtom ) ;
+    // InternalS78154S78236.g:2213:1: rule__EList__AtomAssignment_1 : ( ruleAtom ) ;
     public final void rule__EList__AtomAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalS78154S78236.g:2198:1: ( ( ruleAtom ) )
-            // InternalS78154S78236.g:2199:2: ( ruleAtom )
+            // InternalS78154S78236.g:2217:1: ( ( ruleAtom ) )
+            // InternalS78154S78236.g:2218:2: ( ruleAtom )
             {
-            // InternalS78154S78236.g:2199:2: ( ruleAtom )
-            // InternalS78154S78236.g:2200:3: ruleAtom
+            // InternalS78154S78236.g:2218:2: ( ruleAtom )
+            // InternalS78154S78236.g:2219:3: ruleAtom
             {
              before(grammarAccess.getEListAccess().getAtomAtomParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -6681,17 +6736,17 @@ public class InternalS78154S78236Parser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__EList__TermAssignment_3"
-    // InternalS78154S78236.g:2209:1: rule__EList__TermAssignment_3 : ( ruleTerm ) ;
+    // InternalS78154S78236.g:2228:1: rule__EList__TermAssignment_3 : ( ruleTerm ) ;
     public final void rule__EList__TermAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalS78154S78236.g:2213:1: ( ( ruleTerm ) )
-            // InternalS78154S78236.g:2214:2: ( ruleTerm )
+            // InternalS78154S78236.g:2232:1: ( ( ruleTerm ) )
+            // InternalS78154S78236.g:2233:2: ( ruleTerm )
             {
-            // InternalS78154S78236.g:2214:2: ( ruleTerm )
-            // InternalS78154S78236.g:2215:3: ruleTerm
+            // InternalS78154S78236.g:2233:2: ( ruleTerm )
+            // InternalS78154S78236.g:2234:3: ruleTerm
             {
              before(grammarAccess.getEListAccess().getTermTermParserRuleCall_3_0()); 
             pushFollow(FOLLOW_2);
@@ -6722,17 +6777,17 @@ public class InternalS78154S78236Parser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__EAtom__AtomAssignment_1"
-    // InternalS78154S78236.g:2224:1: rule__EAtom__AtomAssignment_1 : ( ruleAtom ) ;
+    // InternalS78154S78236.g:2243:1: rule__EAtom__AtomAssignment_1 : ( ruleAtom ) ;
     public final void rule__EAtom__AtomAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalS78154S78236.g:2228:1: ( ( ruleAtom ) )
-            // InternalS78154S78236.g:2229:2: ( ruleAtom )
+            // InternalS78154S78236.g:2247:1: ( ( ruleAtom ) )
+            // InternalS78154S78236.g:2248:2: ( ruleAtom )
             {
-            // InternalS78154S78236.g:2229:2: ( ruleAtom )
-            // InternalS78154S78236.g:2230:3: ruleAtom
+            // InternalS78154S78236.g:2248:2: ( ruleAtom )
+            // InternalS78154S78236.g:2249:3: ruleAtom
             {
              before(grammarAccess.getEAtomAccess().getAtomAtomParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -6763,17 +6818,17 @@ public class InternalS78154S78236Parser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__Ident__IdentAssignment"
-    // InternalS78154S78236.g:2239:1: rule__Ident__IdentAssignment : ( RULE_ID ) ;
+    // InternalS78154S78236.g:2258:1: rule__Ident__IdentAssignment : ( RULE_ID ) ;
     public final void rule__Ident__IdentAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalS78154S78236.g:2243:1: ( ( RULE_ID ) )
-            // InternalS78154S78236.g:2244:2: ( RULE_ID )
+            // InternalS78154S78236.g:2262:1: ( ( RULE_ID ) )
+            // InternalS78154S78236.g:2263:2: ( RULE_ID )
             {
-            // InternalS78154S78236.g:2244:2: ( RULE_ID )
-            // InternalS78154S78236.g:2245:3: RULE_ID
+            // InternalS78154S78236.g:2263:2: ( RULE_ID )
+            // InternalS78154S78236.g:2264:3: RULE_ID
             {
              before(grammarAccess.getIdentAccess().getIdentIDTerminalRuleCall_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -6800,17 +6855,17 @@ public class InternalS78154S78236Parser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__EVar__VariableAssignment"
-    // InternalS78154S78236.g:2254:1: rule__EVar__VariableAssignment : ( RULE_VARIABLE ) ;
+    // InternalS78154S78236.g:2273:1: rule__EVar__VariableAssignment : ( RULE_VARIABLE ) ;
     public final void rule__EVar__VariableAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalS78154S78236.g:2258:1: ( ( RULE_VARIABLE ) )
-            // InternalS78154S78236.g:2259:2: ( RULE_VARIABLE )
+            // InternalS78154S78236.g:2277:1: ( ( RULE_VARIABLE ) )
+            // InternalS78154S78236.g:2278:2: ( RULE_VARIABLE )
             {
-            // InternalS78154S78236.g:2259:2: ( RULE_VARIABLE )
-            // InternalS78154S78236.g:2260:3: RULE_VARIABLE
+            // InternalS78154S78236.g:2278:2: ( RULE_VARIABLE )
+            // InternalS78154S78236.g:2279:3: RULE_VARIABLE
             {
              before(grammarAccess.getEVarAccess().getVariableVARIABLETerminalRuleCall_0()); 
             match(input,RULE_VARIABLE,FOLLOW_2); 
@@ -6843,12 +6898,12 @@ public class InternalS78154S78236Parser extends AbstractInternalContentAssistPar
     public static final BitSet FOLLOW_1 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_2 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000000000022L});
-    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000000004000L});
+    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000000002000L});
     public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000004000L});
     public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000008000L});
     public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000008002L});
-    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000012000L});
+    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000014000L});
     public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000020000L});
     public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000180070L});
     public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000048000L});

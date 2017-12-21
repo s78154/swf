@@ -87,6 +87,15 @@ public interface S78154S78236Factory extends EFactory
   Clause createClause();
 
   /**
+   * Returns a new object of class '<em>Fact</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Fact</em>'.
+   * @generated
+   */
+  Fact createFact();
+
+  /**
    * Returns a new object of class '<em>Rule</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

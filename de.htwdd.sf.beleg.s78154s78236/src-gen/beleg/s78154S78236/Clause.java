@@ -52,30 +52,30 @@ public interface Clause extends EObject
   void setPredicate(Predicate value);
 
   /**
-   * Returns the value of the '<em><b>Fact</b></em>' attribute.
+   * Returns the value of the '<em><b>Fact</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Fact</em>' attribute isn't clear,
+   * If the meaning of the '<em>Fact</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Fact</em>' attribute.
-   * @see #setFact(String)
+   * @return the value of the '<em>Fact</em>' containment reference.
+   * @see #setFact(Fact)
    * @see beleg.s78154S78236.S78154S78236Package#getClause_Fact()
-   * @model
+   * @model containment="true"
    * @generated
    */
-  String getFact();
+  Fact getFact();
 
   /**
-   * Sets the value of the '{@link beleg.s78154S78236.Clause#getFact <em>Fact</em>}' attribute.
+   * Sets the value of the '{@link beleg.s78154S78236.Clause#getFact <em>Fact</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Fact</em>' attribute.
+   * @param value the new value of the '<em>Fact</em>' containment reference.
    * @see #getFact()
    * @generated
    */
-  void setFact(String value);
+  void setFact(Fact value);
 
   /**
    * Returns the value of the '<em><b>Rule</b></em>' containment reference.

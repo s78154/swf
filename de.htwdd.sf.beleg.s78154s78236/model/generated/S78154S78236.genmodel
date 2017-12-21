@@ -7,7 +7,7 @@
   <genPackages prefix="S78154S78236" basePackage="beleg" disposableProviderFactory="true"
       fileExtensions="belegdsl" ecorePackage="S78154S78236.ecore#/">
     <genClasses ecoreClass="S78154S78236.ecore#//Model">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference S78154S78236.ecore#//Model/dsl"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference S78154S78236.ecore#//Model/model"/>
     </genClasses>
     <genClasses ecoreClass="S78154S78236.ecore#//PrologDsl">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference S78154S78236.ecore#//PrologDsl/program"/>
@@ -28,8 +28,11 @@
     </genClasses>
     <genClasses ecoreClass="S78154S78236.ecore#//Clause">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference S78154S78236.ecore#//Clause/predicate"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute S78154S78236.ecore#//Clause/fact"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference S78154S78236.ecore#//Clause/fact"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference S78154S78236.ecore#//Clause/rule"/>
+    </genClasses>
+    <genClasses ecoreClass="S78154S78236.ecore#//Fact">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute S78154S78236.ecore#//Fact/fact"/>
     </genClasses>
     <genClasses ecoreClass="S78154S78236.ecore#//Rule">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference S78154S78236.ecore#//Rule/term"/>

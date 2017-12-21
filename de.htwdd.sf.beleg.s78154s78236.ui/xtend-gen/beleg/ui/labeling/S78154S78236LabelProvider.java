@@ -3,6 +3,28 @@
  */
 package beleg.ui.labeling;
 
+import beleg.s78154S78236.Atom;
+import beleg.s78154S78236.Clause;
+import beleg.s78154S78236.EAtom;
+import beleg.s78154S78236.EFolge;
+import beleg.s78154S78236.EList;
+import beleg.s78154S78236.ETerm;
+import beleg.s78154S78236.EVar;
+import beleg.s78154S78236.EmptyList;
+import beleg.s78154S78236.Exquery;
+import beleg.s78154S78236.Fact;
+import beleg.s78154S78236.Folge;
+import beleg.s78154S78236.Functor;
+import beleg.s78154S78236.Ident;
+import beleg.s78154S78236.List;
+import beleg.s78154S78236.NonEmptyList;
+import beleg.s78154S78236.Predicate;
+import beleg.s78154S78236.Program;
+import beleg.s78154S78236.PrologDsl;
+import beleg.s78154S78236.Query;
+import beleg.s78154S78236.Rule;
+import beleg.s78154S78236.Term;
+import com.google.common.base.Objects;
 import com.google.inject.Inject;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider;
@@ -17,5 +39,117 @@ public class S78154S78236LabelProvider extends DefaultEObjectLabelProvider {
   @Inject
   public S78154S78236LabelProvider(final AdapterFactoryLabelProvider delegate) {
     super(delegate);
+  }
+  
+  public String text(final PrologDsl e) {
+    return "PrologDsl";
+  }
+  
+  public String text(final Program e) {
+    return "Program";
+  }
+  
+  public String text(final Exquery e) {
+    return "Exquery";
+  }
+  
+  public String text(final Query e) {
+    return "Query";
+  }
+  
+  public String text(final Clause e) {
+    return "Clause";
+  }
+  
+  public String text(final Fact e) {
+    return this.getText(e);
+  }
+  
+  public String text(final Rule e) {
+    return "Rule";
+  }
+  
+  public String text(final Predicate e) {
+    return "Predicate";
+  }
+  
+  public String text(final Functor e) {
+    return "Rule";
+  }
+  
+  public String text(final Term e) {
+    return "Term";
+  }
+  
+  public String text(final ETerm e) {
+    return "Term";
+  }
+  
+  public String text(final Atom e) {
+    Ident _ident = e.getIdent();
+    boolean _notEquals = (!Objects.equal(_ident, null));
+    if (_notEquals) {
+      return this.getText(e.getIdent());
+    } else {
+      String _number = e.getNumber();
+      boolean _notEquals_1 = (!Objects.equal(_number, null));
+      if (_notEquals_1) {
+        return this.getText(e.getNumber());
+      } else {
+        EVar _evar = e.getEvar();
+        boolean _notEquals_2 = (!Objects.equal(_evar, null));
+        if (_notEquals_2) {
+          return this.getText(e.getEvar());
+        }
+      }
+    }
+    return null;
+  }
+  
+  public String text(final List e) {
+    EmptyList _empty = e.getEmpty();
+    boolean _notEquals = (!Objects.equal(_empty, null));
+    if (_notEquals) {
+      return this.getText(e.getEmpty());
+    } else {
+      NonEmptyList _nonEmptyList = e.getNonEmptyList();
+      boolean _notEquals_1 = (!Objects.equal(_nonEmptyList, null));
+      if (_notEquals_1) {
+        return this.getText(e.getNonEmptyList());
+      }
+    }
+    return null;
+  }
+  
+  public String text(final EmptyList e) {
+    return this.getText(e);
+  }
+  
+  public String text(final NonEmptyList e) {
+    return "NonEmptyList";
+  }
+  
+  public String text(final Folge e) {
+    return "Folge";
+  }
+  
+  public String text(final EFolge e) {
+    return "Folge";
+  }
+  
+  public String text(final EList e) {
+    return "List";
+  }
+  
+  public String text(final EAtom e) {
+    return "Atom";
+  }
+  
+  public String text(final Ident e) {
+    return this.getText(e.getIdent());
+  }
+  
+  public String text(final EVar e) {
+    return this.getText(e.getVariable());
   }
 }

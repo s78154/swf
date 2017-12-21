@@ -122,6 +122,13 @@ public class S78154S78236Switch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case S78154S78236Package.FACT:
+      {
+        Fact fact = (Fact)theEObject;
+        T result = caseFact(fact);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case S78154S78236Package.RULE:
       {
         Rule rule = (Rule)theEObject;
@@ -339,6 +346,22 @@ public class S78154S78236Switch<T> extends Switch<T>
    * @generated
    */
   public T caseClause(Clause object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Fact</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Fact</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseFact(Fact object)
   {
     return null;
   }

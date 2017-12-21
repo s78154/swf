@@ -13,6 +13,7 @@ import beleg.s78154S78236.ETerm;
 import beleg.s78154S78236.EVar;
 import beleg.s78154S78236.EmptyList;
 import beleg.s78154S78236.Exquery;
+import beleg.s78154S78236.Fact;
 import beleg.s78154S78236.Folge;
 import beleg.s78154S78236.Functor;
 import beleg.s78154S78236.Ident;
@@ -83,6 +84,9 @@ public class S78154S78236SemanticSequencer extends AbstractDelegatingSemanticSeq
 			case S78154S78236Package.EXQUERY:
 				sequence_Exquery(context, (Exquery) semanticObject); 
 				return; 
+			case S78154S78236Package.FACT:
+				sequence_Fact(context, (Fact) semanticObject); 
+				return; 
 			case S78154S78236Package.FOLGE:
 				sequence_Folge(context, (Folge) semanticObject); 
 				return; 
@@ -129,7 +133,7 @@ public class S78154S78236SemanticSequencer extends AbstractDelegatingSemanticSeq
 	 *     Atom returns Atom
 	 *
 	 * Constraint:
-	 *     (ident=Ident | number=NUMBER1 | evar=EVar)
+	 *     (ident=Ident | number=NUMBER | evar=EVar)
 	 */
 	protected void sequence_Atom(ISerializationContext context, Atom semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -291,6 +295,24 @@ public class S78154S78236SemanticSequencer extends AbstractDelegatingSemanticSeq
 	
 	/**
 	 * Contexts:
+	 *     Fact returns Fact
+	 *
+	 * Constraint:
+	 *     fact='.'
+	 */
+	protected void sequence_Fact(ISerializationContext context, Fact semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, S78154S78236Package.Literals.FACT__FACT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, S78154S78236Package.Literals.FACT__FACT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getFactAccess().getFactFullStopKeyword_0(), semanticObject.getFact());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Folge returns Folge
 	 *
 	 * Constraint:
@@ -354,10 +376,16 @@ public class S78154S78236SemanticSequencer extends AbstractDelegatingSemanticSeq
 	 *     Model returns Model
 	 *
 	 * Constraint:
-	 *     dsl+=PrologDsl
+	 *     model=PrologDsl
 	 */
 	protected void sequence_Model(ISerializationContext context, Model semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, S78154S78236Package.Literals.MODEL__MODEL) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, S78154S78236Package.Literals.MODEL__MODEL));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getModelAccess().getModelPrologDslParserRuleCall_0(), semanticObject.getModel());
+		feeder.finish();
 	}
 	
 	

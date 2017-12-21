@@ -3,7 +3,7 @@ grammar beleg.S78154S78236 with org.eclipse.xtext.common.Terminals
 generate s78154S78236 "http://www.S78154S78236.beleg"
 
 Model:
-	dsl+=PrologDsl;
+	model=PrologDsl;
 	
 
 PrologDsl:
@@ -31,7 +31,7 @@ Clause:
 ;
 
 Fact:
-	 "."
+	 fact="."
 ;
 
 Rule:
@@ -56,7 +56,7 @@ ETerm:
 ;
 
 Atom:
-	ident=Ident|number=NUMBER1|evar=EVar
+	ident=Ident|number=NUMBER|evar=EVar
 ;
 
 List:
@@ -98,13 +98,12 @@ EVar:
 ;
 
 //Terminale
-
-@Override 
+@Override
 terminal ID:
 	'^'? ('a'..'z') ('A'..'Z'|'a'..'z'|'0'..'9'|'_')*
 ;
 
-terminal NUMBER1:
+terminal NUMBER:
 	INT
 ;
 

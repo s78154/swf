@@ -111,6 +111,11 @@ public class S78154S78236AdapterFactory extends AdapterFactoryImpl
         return createClauseAdapter();
       }
       @Override
+      public Adapter caseFact(Fact object)
+      {
+        return createFactAdapter();
+      }
+      @Override
       public Adapter caseRule(Rule object)
       {
         return createRuleAdapter();
@@ -308,6 +313,21 @@ public class S78154S78236AdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createClauseAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link beleg.s78154S78236.Fact <em>Fact</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see beleg.s78154S78236.Fact
+   * @generated
+   */
+  public Adapter createFactAdapter()
   {
     return null;
   }

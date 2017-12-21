@@ -4,6 +4,7 @@
 package beleg.ui.labeling
 
 import org.eclipse.xtext.ui.label.DefaultDescriptionLabelProvider
+import beleg.s78154S78236.*
 
 /**
  * Provides labels for IEObjectDescriptions and IResourceDescriptions.
@@ -21,4 +22,7 @@ class S78154S78236DescriptionLabelProvider extends DefaultDescriptionLabelProvid
 //	override image(IEObjectDescription ele) {
 //		ele.EClass.name + '.gif'
 //	}
+
+
 }
+	

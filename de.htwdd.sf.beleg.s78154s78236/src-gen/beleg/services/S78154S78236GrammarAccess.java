@@ -25,18 +25,18 @@ public class S78154S78236GrammarAccess extends AbstractGrammarElementFinder {
 	
 	public class ModelElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "beleg.S78154S78236.Model");
-		private final Assignment cDslAssignment = (Assignment)rule.eContents().get(1);
-		private final RuleCall cDslPrologDslParserRuleCall_0 = (RuleCall)cDslAssignment.eContents().get(0);
+		private final Assignment cModelAssignment = (Assignment)rule.eContents().get(1);
+		private final RuleCall cModelPrologDslParserRuleCall_0 = (RuleCall)cModelAssignment.eContents().get(0);
 		
 		//Model:
-		//	dsl+=PrologDsl;
+		//	model=PrologDsl;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//dsl+=PrologDsl
-		public Assignment getDslAssignment() { return cDslAssignment; }
+		//model=PrologDsl
+		public Assignment getModelAssignment() { return cModelAssignment; }
 		
 		//PrologDsl
-		public RuleCall getDslPrologDslParserRuleCall_0() { return cDslPrologDslParserRuleCall_0; }
+		public RuleCall getModelPrologDslParserRuleCall_0() { return cModelPrologDslParserRuleCall_0; }
 	}
 	public class PrologDslElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "beleg.S78154S78236.PrologDsl");
@@ -198,14 +198,18 @@ public class S78154S78236GrammarAccess extends AbstractGrammarElementFinder {
 	}
 	public class FactElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "beleg.S78154S78236.Fact");
-		private final Keyword cFullStopKeyword = (Keyword)rule.eContents().get(1);
+		private final Assignment cFactAssignment = (Assignment)rule.eContents().get(1);
+		private final Keyword cFactFullStopKeyword_0 = (Keyword)cFactAssignment.eContents().get(0);
 		
 		//Fact:
-		//	".";
+		//	fact=".";
 		@Override public ParserRule getRule() { return rule; }
 		
+		//fact="."
+		public Assignment getFactAssignment() { return cFactAssignment; }
+		
 		//"."
-		public Keyword getFullStopKeyword() { return cFullStopKeyword; }
+		public Keyword getFactFullStopKeyword_0() { return cFactFullStopKeyword_0; }
 	}
 	public class RuleElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "beleg.S78154S78236.Rule");
@@ -360,15 +364,15 @@ public class S78154S78236GrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cIdentAssignment_0 = (Assignment)cAlternatives.eContents().get(0);
 		private final RuleCall cIdentIdentParserRuleCall_0_0 = (RuleCall)cIdentAssignment_0.eContents().get(0);
 		private final Assignment cNumberAssignment_1 = (Assignment)cAlternatives.eContents().get(1);
-		private final RuleCall cNumberNUMBER1TerminalRuleCall_1_0 = (RuleCall)cNumberAssignment_1.eContents().get(0);
+		private final RuleCall cNumberNUMBERTerminalRuleCall_1_0 = (RuleCall)cNumberAssignment_1.eContents().get(0);
 		private final Assignment cEvarAssignment_2 = (Assignment)cAlternatives.eContents().get(2);
 		private final RuleCall cEvarEVarParserRuleCall_2_0 = (RuleCall)cEvarAssignment_2.eContents().get(0);
 		
 		//Atom:
-		//	ident=Ident | number=NUMBER1 | evar=EVar;
+		//	ident=Ident | number=NUMBER | evar=EVar;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//ident=Ident | number=NUMBER1 | evar=EVar
+		//ident=Ident | number=NUMBER | evar=EVar
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//ident=Ident
@@ -377,11 +381,11 @@ public class S78154S78236GrammarAccess extends AbstractGrammarElementFinder {
 		//Ident
 		public RuleCall getIdentIdentParserRuleCall_0_0() { return cIdentIdentParserRuleCall_0_0; }
 		
-		//number=NUMBER1
+		//number=NUMBER
 		public Assignment getNumberAssignment_1() { return cNumberAssignment_1; }
 		
-		//NUMBER1
-		public RuleCall getNumberNUMBER1TerminalRuleCall_1_0() { return cNumberNUMBER1TerminalRuleCall_1_0; }
+		//NUMBER
+		public RuleCall getNumberNUMBERTerminalRuleCall_1_0() { return cNumberNUMBERTerminalRuleCall_1_0; }
 		
 		//evar=EVar
 		public Assignment getEvarAssignment_2() { return cEvarAssignment_2; }
@@ -634,7 +638,7 @@ public class S78154S78236GrammarAccess extends AbstractGrammarElementFinder {
 	private final IdentElements pIdent;
 	private final EVarElements pEVar;
 	private final TerminalRule tID;
-	private final TerminalRule tNUMBER1;
+	private final TerminalRule tNUMBER;
 	private final TerminalRule tVARIABLE;
 	
 	private final Grammar grammar;
@@ -670,7 +674,7 @@ public class S78154S78236GrammarAccess extends AbstractGrammarElementFinder {
 		this.pIdent = new IdentElements();
 		this.pEVar = new EVarElements();
 		this.tID = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "beleg.S78154S78236.ID");
-		this.tNUMBER1 = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "beleg.S78154S78236.NUMBER1");
+		this.tNUMBER = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "beleg.S78154S78236.NUMBER");
 		this.tVARIABLE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "beleg.S78154S78236.VARIABLE");
 	}
 	
@@ -702,7 +706,7 @@ public class S78154S78236GrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//Model:
-	//	dsl+=PrologDsl;
+	//	model=PrologDsl;
 	public ModelElements getModelAccess() {
 		return pModel;
 	}
@@ -772,7 +776,7 @@ public class S78154S78236GrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Fact:
-	//	".";
+	//	fact=".";
 	public FactElements getFactAccess() {
 		return pFact;
 	}
@@ -832,7 +836,7 @@ public class S78154S78236GrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Atom:
-	//	ident=Ident | number=NUMBER1 | evar=EVar;
+	//	ident=Ident | number=NUMBER | evar=EVar;
 	public AtomElements getAtomAccess() {
 		return pAtom;
 	}
@@ -931,16 +935,16 @@ public class S78154S78236GrammarAccess extends AbstractGrammarElementFinder {
 		return getEVarAccess().getRule();
 	}
 	
-	//@ Override terminal ID:
+	//terminal ID:
 	//	'^'? 'a'..'z' ('A'..'Z' | 'a'..'z' | '0'..'9' | '_')*;
 	public TerminalRule getIDRule() {
 		return tID;
 	}
 	
-	//terminal NUMBER1:
+	//terminal NUMBER:
 	//	INT;
-	public TerminalRule getNUMBER1Rule() {
-		return tNUMBER1;
+	public TerminalRule getNUMBERRule() {
+		return tNUMBER;
 	}
 	
 	//terminal VARIABLE:

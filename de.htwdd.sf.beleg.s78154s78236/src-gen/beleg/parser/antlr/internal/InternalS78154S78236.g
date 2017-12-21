@@ -78,17 +78,17 @@ ruleModel returns [EObject current=null]
 	(
 		(
 			{
-				newCompositeNode(grammarAccess.getModelAccess().getDslPrologDslParserRuleCall_0());
+				newCompositeNode(grammarAccess.getModelAccess().getModelPrologDslParserRuleCall_0());
 			}
-			lv_dsl_0_0=rulePrologDsl
+			lv_model_0_0=rulePrologDsl
 			{
 				if ($current==null) {
 					$current = createModelElementForParent(grammarAccess.getModelRule());
 				}
-				add(
+				set(
 					$current,
-					"dsl",
-					lv_dsl_0_0,
+					"model",
+					lv_model_0_0,
 					"beleg.S78154S78236.PrologDsl");
 				afterParserOrEnumRuleCall();
 			}
@@ -414,25 +414,34 @@ ruleClause returns [EObject current=null]
 ;
 
 // Entry rule entryRuleFact
-entryRuleFact returns [String current=null]:
+entryRuleFact returns [EObject current=null]:
 	{ newCompositeNode(grammarAccess.getFactRule()); }
 	iv_ruleFact=ruleFact
-	{ $current=$iv_ruleFact.current.getText(); }
+	{ $current=$iv_ruleFact.current; }
 	EOF;
 
 // Rule Fact
-ruleFact returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
+ruleFact returns [EObject current=null]
 @init {
 	enterRule();
 }
 @after {
 	leaveRule();
 }:
-	kw='.'
-	{
-		$current.merge(kw);
-		newLeafNode(kw, grammarAccess.getFactAccess().getFullStopKeyword());
-	}
+	(
+		(
+			lv_fact_0_0='.'
+			{
+				newLeafNode(lv_fact_0_0, grammarAccess.getFactAccess().getFactFullStopKeyword_0());
+			}
+			{
+				if ($current==null) {
+					$current = createModelElement(grammarAccess.getFactRule());
+				}
+				setWithLastConsumed($current, "fact", lv_fact_0_0, ".");
+			}
+		)
+	)
 ;
 
 // Entry rule entryRuleRule
@@ -762,9 +771,9 @@ ruleAtom returns [EObject current=null]
 		    |
 		(
 			(
-				lv_number_1_0=RULE_NUMBER1
+				lv_number_1_0=RULE_NUMBER
 				{
-					newLeafNode(lv_number_1_0, grammarAccess.getAtomAccess().getNumberNUMBER1TerminalRuleCall_1_0());
+					newLeafNode(lv_number_1_0, grammarAccess.getAtomAccess().getNumberNUMBERTerminalRuleCall_1_0());
 				}
 				{
 					if ($current==null) {
@@ -774,7 +783,7 @@ ruleAtom returns [EObject current=null]
 						$current,
 						"number",
 						lv_number_1_0,
-						"beleg.S78154S78236.NUMBER1");
+						"beleg.S78154S78236.NUMBER");
 				}
 			)
 		)
@@ -1233,7 +1242,7 @@ ruleEVar returns [EObject current=null]
 
 RULE_ID : '^'? 'a'..'z' ('A'..'Z'|'a'..'z'|'0'..'9'|'_')*;
 
-RULE_NUMBER1 : RULE_INT;
+RULE_NUMBER : RULE_INT;
 
 RULE_VARIABLE : 'A'..'Z';
 

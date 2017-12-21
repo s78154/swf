@@ -68,13 +68,13 @@ public interface S78154S78236Package extends EPackage
   int MODEL = 0;
 
   /**
-   * The feature id for the '<em><b>Dsl</b></em>' containment reference list.
+   * The feature id for the '<em><b>Model</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MODEL__DSL = 0;
+  int MODEL__MODEL = 0;
 
   /**
    * The number of structural features of the '<em>Model</em>' class.
@@ -263,7 +263,7 @@ public interface S78154S78236Package extends EPackage
   int CLAUSE__PREDICATE = 0;
 
   /**
-   * The feature id for the '<em><b>Fact</b></em>' attribute.
+   * The feature id for the '<em><b>Fact</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -290,6 +290,34 @@ public interface S78154S78236Package extends EPackage
   int CLAUSE_FEATURE_COUNT = 3;
 
   /**
+   * The meta object id for the '{@link beleg.s78154S78236.impl.FactImpl <em>Fact</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see beleg.s78154S78236.impl.FactImpl
+   * @see beleg.s78154S78236.impl.S78154S78236PackageImpl#getFact()
+   * @generated
+   */
+  int FACT = 7;
+
+  /**
+   * The feature id for the '<em><b>Fact</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FACT__FACT = 0;
+
+  /**
+   * The number of structural features of the '<em>Fact</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FACT_FEATURE_COUNT = 1;
+
+  /**
    * The meta object id for the '{@link beleg.s78154S78236.impl.RuleImpl <em>Rule</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -297,7 +325,7 @@ public interface S78154S78236Package extends EPackage
    * @see beleg.s78154S78236.impl.S78154S78236PackageImpl#getRule()
    * @generated
    */
-  int RULE = 7;
+  int RULE = 8;
 
   /**
    * The feature id for the '<em><b>Term</b></em>' containment reference.
@@ -334,7 +362,7 @@ public interface S78154S78236Package extends EPackage
    * @see beleg.s78154S78236.impl.S78154S78236PackageImpl#getPredicate()
    * @generated
    */
-  int PREDICATE = 8;
+  int PREDICATE = 9;
 
   /**
    * The feature id for the '<em><b>Functor</b></em>' containment reference.
@@ -380,7 +408,7 @@ public interface S78154S78236Package extends EPackage
    * @see beleg.s78154S78236.impl.S78154S78236PackageImpl#getFunctor()
    * @generated
    */
-  int FUNCTOR = 9;
+  int FUNCTOR = 10;
 
   /**
    * The feature id for the '<em><b>Ident</b></em>' containment reference.
@@ -408,7 +436,7 @@ public interface S78154S78236Package extends EPackage
    * @see beleg.s78154S78236.impl.S78154S78236PackageImpl#getTerm()
    * @generated
    */
-  int TERM = 10;
+  int TERM = 11;
 
   /**
    * The feature id for the '<em><b>Atom</b></em>' containment reference.
@@ -445,7 +473,7 @@ public interface S78154S78236Package extends EPackage
    * @see beleg.s78154S78236.impl.S78154S78236PackageImpl#getETerm()
    * @generated
    */
-  int ETERM = 11;
+  int ETERM = 12;
 
   /**
    * The feature id for the '<em><b>Term</b></em>' containment reference.
@@ -473,7 +501,7 @@ public interface S78154S78236Package extends EPackage
    * @see beleg.s78154S78236.impl.S78154S78236PackageImpl#getAtom()
    * @generated
    */
-  int ATOM = 12;
+  int ATOM = 13;
 
   /**
    * The feature id for the '<em><b>Ident</b></em>' containment reference.
@@ -519,7 +547,7 @@ public interface S78154S78236Package extends EPackage
    * @see beleg.s78154S78236.impl.S78154S78236PackageImpl#getList()
    * @generated
    */
-  int LIST = 13;
+  int LIST = 14;
 
   /**
    * The feature id for the '<em><b>Empty</b></em>' containment reference.
@@ -556,7 +584,7 @@ public interface S78154S78236Package extends EPackage
    * @see beleg.s78154S78236.impl.S78154S78236PackageImpl#getEmptyList()
    * @generated
    */
-  int EMPTY_LIST = 14;
+  int EMPTY_LIST = 15;
 
   /**
    * The number of structural features of the '<em>Empty List</em>' class.
@@ -575,7 +603,7 @@ public interface S78154S78236Package extends EPackage
    * @see beleg.s78154S78236.impl.S78154S78236PackageImpl#getNonEmptyList()
    * @generated
    */
-  int NON_EMPTY_LIST = 15;
+  int NON_EMPTY_LIST = 16;
 
   /**
    * The feature id for the '<em><b>Efolge</b></em>' containment reference.
@@ -612,7 +640,7 @@ public interface S78154S78236Package extends EPackage
    * @see beleg.s78154S78236.impl.S78154S78236PackageImpl#getFolge()
    * @generated
    */
-  int FOLGE = 16;
+  int FOLGE = 17;
 
   /**
    * The feature id for the '<em><b>Atom</b></em>' containment reference.
@@ -649,7 +677,7 @@ public interface S78154S78236Package extends EPackage
    * @see beleg.s78154S78236.impl.S78154S78236PackageImpl#getEFolge()
    * @generated
    */
-  int EFOLGE = 17;
+  int EFOLGE = 18;
 
   /**
    * The feature id for the '<em><b>Folge</b></em>' containment reference.
@@ -677,7 +705,7 @@ public interface S78154S78236Package extends EPackage
    * @see beleg.s78154S78236.impl.S78154S78236PackageImpl#getEList()
    * @generated
    */
-  int ELIST = 18;
+  int ELIST = 19;
 
   /**
    * The feature id for the '<em><b>Atom</b></em>' containment reference.
@@ -714,7 +742,7 @@ public interface S78154S78236Package extends EPackage
    * @see beleg.s78154S78236.impl.S78154S78236PackageImpl#getEAtom()
    * @generated
    */
-  int EATOM = 19;
+  int EATOM = 20;
 
   /**
    * The feature id for the '<em><b>Atom</b></em>' containment reference.
@@ -742,7 +770,7 @@ public interface S78154S78236Package extends EPackage
    * @see beleg.s78154S78236.impl.S78154S78236PackageImpl#getIdent()
    * @generated
    */
-  int IDENT = 20;
+  int IDENT = 21;
 
   /**
    * The feature id for the '<em><b>Ident</b></em>' attribute.
@@ -770,7 +798,7 @@ public interface S78154S78236Package extends EPackage
    * @see beleg.s78154S78236.impl.S78154S78236PackageImpl#getEVar()
    * @generated
    */
-  int EVAR = 21;
+  int EVAR = 22;
 
   /**
    * The feature id for the '<em><b>Variable</b></em>' attribute.
@@ -802,15 +830,15 @@ public interface S78154S78236Package extends EPackage
   EClass getModel();
 
   /**
-   * Returns the meta object for the containment reference list '{@link beleg.s78154S78236.Model#getDsl <em>Dsl</em>}'.
+   * Returns the meta object for the containment reference '{@link beleg.s78154S78236.Model#getModel <em>Model</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Dsl</em>'.
-   * @see beleg.s78154S78236.Model#getDsl()
+   * @return the meta object for the containment reference '<em>Model</em>'.
+   * @see beleg.s78154S78236.Model#getModel()
    * @see #getModel()
    * @generated
    */
-  EReference getModel_Dsl();
+  EReference getModel_Model();
 
   /**
    * Returns the meta object for class '{@link beleg.s78154S78236.PrologDsl <em>Prolog Dsl</em>}'.
@@ -961,15 +989,15 @@ public interface S78154S78236Package extends EPackage
   EReference getClause_Predicate();
 
   /**
-   * Returns the meta object for the attribute '{@link beleg.s78154S78236.Clause#getFact <em>Fact</em>}'.
+   * Returns the meta object for the containment reference '{@link beleg.s78154S78236.Clause#getFact <em>Fact</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Fact</em>'.
+   * @return the meta object for the containment reference '<em>Fact</em>'.
    * @see beleg.s78154S78236.Clause#getFact()
    * @see #getClause()
    * @generated
    */
-  EAttribute getClause_Fact();
+  EReference getClause_Fact();
 
   /**
    * Returns the meta object for the containment reference '{@link beleg.s78154S78236.Clause#getRule <em>Rule</em>}'.
@@ -981,6 +1009,27 @@ public interface S78154S78236Package extends EPackage
    * @generated
    */
   EReference getClause_Rule();
+
+  /**
+   * Returns the meta object for class '{@link beleg.s78154S78236.Fact <em>Fact</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Fact</em>'.
+   * @see beleg.s78154S78236.Fact
+   * @generated
+   */
+  EClass getFact();
+
+  /**
+   * Returns the meta object for the attribute '{@link beleg.s78154S78236.Fact#getFact <em>Fact</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Fact</em>'.
+   * @see beleg.s78154S78236.Fact#getFact()
+   * @see #getFact()
+   * @generated
+   */
+  EAttribute getFact_Fact();
 
   /**
    * Returns the meta object for class '{@link beleg.s78154S78236.Rule <em>Rule</em>}'.
@@ -1430,12 +1479,12 @@ public interface S78154S78236Package extends EPackage
     EClass MODEL = eINSTANCE.getModel();
 
     /**
-     * The meta object literal for the '<em><b>Dsl</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Model</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference MODEL__DSL = eINSTANCE.getModel_Dsl();
+    EReference MODEL__MODEL = eINSTANCE.getModel_Model();
 
     /**
      * The meta object literal for the '{@link beleg.s78154S78236.impl.PrologDslImpl <em>Prolog Dsl</em>}' class.
@@ -1562,12 +1611,12 @@ public interface S78154S78236Package extends EPackage
     EReference CLAUSE__PREDICATE = eINSTANCE.getClause_Predicate();
 
     /**
-     * The meta object literal for the '<em><b>Fact</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Fact</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute CLAUSE__FACT = eINSTANCE.getClause_Fact();
+    EReference CLAUSE__FACT = eINSTANCE.getClause_Fact();
 
     /**
      * The meta object literal for the '<em><b>Rule</b></em>' containment reference feature.
@@ -1576,6 +1625,24 @@ public interface S78154S78236Package extends EPackage
      * @generated
      */
     EReference CLAUSE__RULE = eINSTANCE.getClause_Rule();
+
+    /**
+     * The meta object literal for the '{@link beleg.s78154S78236.impl.FactImpl <em>Fact</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see beleg.s78154S78236.impl.FactImpl
+     * @see beleg.s78154S78236.impl.S78154S78236PackageImpl#getFact()
+     * @generated
+     */
+    EClass FACT = eINSTANCE.getFact();
+
+    /**
+     * The meta object literal for the '<em><b>Fact</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute FACT__FACT = eINSTANCE.getFact_Fact();
 
     /**
      * The meta object literal for the '{@link beleg.s78154S78236.impl.RuleImpl <em>Rule</em>}' class.

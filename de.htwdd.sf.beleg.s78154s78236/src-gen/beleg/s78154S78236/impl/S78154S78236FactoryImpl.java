@@ -72,6 +72,7 @@ public class S78154S78236FactoryImpl extends EFactoryImpl implements S78154S7823
       case S78154S78236Package.QUERY: return createQuery();
       case S78154S78236Package.EPREDICATE: return createEPredicate();
       case S78154S78236Package.CLAUSE: return createClause();
+      case S78154S78236Package.FACT: return createFact();
       case S78154S78236Package.RULE: return createRule();
       case S78154S78236Package.PREDICATE: return createPredicate();
       case S78154S78236Package.FUNCTOR: return createFunctor();
@@ -167,6 +168,17 @@ public class S78154S78236FactoryImpl extends EFactoryImpl implements S78154S7823
   {
     ClauseImpl clause = new ClauseImpl();
     return clause;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Fact createFact()
+  {
+    FactImpl fact = new FactImpl();
+    return fact;
   }
 
   /**

@@ -4,6 +4,7 @@
 package beleg.s78154S78236.impl;
 
 import beleg.s78154S78236.Clause;
+import beleg.s78154S78236.Fact;
 import beleg.s78154S78236.Predicate;
 import beleg.s78154S78236.Rule;
 import beleg.s78154S78236.S78154S78236Package;
@@ -45,24 +46,14 @@ public class ClauseImpl extends MinimalEObjectImpl.Container implements Clause
   protected Predicate predicate;
 
   /**
-   * The default value of the '{@link #getFact() <em>Fact</em>}' attribute.
+   * The cached value of the '{@link #getFact() <em>Fact</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getFact()
    * @generated
    * @ordered
    */
-  protected static final String FACT_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getFact() <em>Fact</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getFact()
-   * @generated
-   * @ordered
-   */
-  protected String fact = FACT_EDEFAULT;
+  protected Fact fact;
 
   /**
    * The cached value of the '{@link #getRule() <em>Rule</em>}' containment reference.
@@ -148,7 +139,7 @@ public class ClauseImpl extends MinimalEObjectImpl.Container implements Clause
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getFact()
+  public Fact getFact()
   {
     return fact;
   }
@@ -158,12 +149,37 @@ public class ClauseImpl extends MinimalEObjectImpl.Container implements Clause
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setFact(String newFact)
+  public NotificationChain basicSetFact(Fact newFact, NotificationChain msgs)
   {
-    String oldFact = fact;
+    Fact oldFact = fact;
     fact = newFact;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, S78154S78236Package.CLAUSE__FACT, oldFact, fact));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, S78154S78236Package.CLAUSE__FACT, oldFact, newFact);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setFact(Fact newFact)
+  {
+    if (newFact != fact)
+    {
+      NotificationChain msgs = null;
+      if (fact != null)
+        msgs = ((InternalEObject)fact).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - S78154S78236Package.CLAUSE__FACT, null, msgs);
+      if (newFact != null)
+        msgs = ((InternalEObject)newFact).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - S78154S78236Package.CLAUSE__FACT, null, msgs);
+      msgs = basicSetFact(newFact, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, S78154S78236Package.CLAUSE__FACT, newFact, newFact));
   }
 
   /**
@@ -226,6 +242,8 @@ public class ClauseImpl extends MinimalEObjectImpl.Container implements Clause
     {
       case S78154S78236Package.CLAUSE__PREDICATE:
         return basicSetPredicate(null, msgs);
+      case S78154S78236Package.CLAUSE__FACT:
+        return basicSetFact(null, msgs);
       case S78154S78236Package.CLAUSE__RULE:
         return basicSetRule(null, msgs);
     }
@@ -266,7 +284,7 @@ public class ClauseImpl extends MinimalEObjectImpl.Container implements Clause
         setPredicate((Predicate)newValue);
         return;
       case S78154S78236Package.CLAUSE__FACT:
-        setFact((String)newValue);
+        setFact((Fact)newValue);
         return;
       case S78154S78236Package.CLAUSE__RULE:
         setRule((Rule)newValue);
@@ -289,7 +307,7 @@ public class ClauseImpl extends MinimalEObjectImpl.Container implements Clause
         setPredicate((Predicate)null);
         return;
       case S78154S78236Package.CLAUSE__FACT:
-        setFact(FACT_EDEFAULT);
+        setFact((Fact)null);
         return;
       case S78154S78236Package.CLAUSE__RULE:
         setRule((Rule)null);
@@ -311,28 +329,11 @@ public class ClauseImpl extends MinimalEObjectImpl.Container implements Clause
       case S78154S78236Package.CLAUSE__PREDICATE:
         return predicate != null;
       case S78154S78236Package.CLAUSE__FACT:
-        return FACT_EDEFAULT == null ? fact != null : !FACT_EDEFAULT.equals(fact);
+        return fact != null;
       case S78154S78236Package.CLAUSE__RULE:
         return rule != null;
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (fact: ");
-    result.append(fact);
-    result.append(')');
-    return result.toString();
   }
 
 } //ClauseImpl

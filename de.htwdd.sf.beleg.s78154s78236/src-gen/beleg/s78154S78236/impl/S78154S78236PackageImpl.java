@@ -13,6 +13,7 @@ import beleg.s78154S78236.ETerm;
 import beleg.s78154S78236.EVar;
 import beleg.s78154S78236.EmptyList;
 import beleg.s78154S78236.Exquery;
+import beleg.s78154S78236.Fact;
 import beleg.s78154S78236.Folge;
 import beleg.s78154S78236.Functor;
 import beleg.s78154S78236.Ident;
@@ -91,6 +92,13 @@ public class S78154S78236PackageImpl extends EPackageImpl implements S78154S7823
    * @generated
    */
   private EClass clauseEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass factEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -275,7 +283,7 @@ public class S78154S78236PackageImpl extends EPackageImpl implements S78154S7823
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getModel_Dsl()
+  public EReference getModel_Model()
   {
     return (EReference)modelEClass.getEStructuralFeatures().get(0);
   }
@@ -425,9 +433,9 @@ public class S78154S78236PackageImpl extends EPackageImpl implements S78154S7823
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getClause_Fact()
+  public EReference getClause_Fact()
   {
-    return (EAttribute)clauseEClass.getEStructuralFeatures().get(1);
+    return (EReference)clauseEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -438,6 +446,26 @@ public class S78154S78236PackageImpl extends EPackageImpl implements S78154S7823
   public EReference getClause_Rule()
   {
     return (EReference)clauseEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getFact()
+  {
+    return factEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getFact_Fact()
+  {
+    return (EAttribute)factEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -861,7 +889,7 @@ public class S78154S78236PackageImpl extends EPackageImpl implements S78154S7823
 
     // Create classes and their features
     modelEClass = createEClass(MODEL);
-    createEReference(modelEClass, MODEL__DSL);
+    createEReference(modelEClass, MODEL__MODEL);
 
     prologDslEClass = createEClass(PROLOG_DSL);
     createEReference(prologDslEClass, PROLOG_DSL__PROGRAM);
@@ -882,8 +910,11 @@ public class S78154S78236PackageImpl extends EPackageImpl implements S78154S7823
 
     clauseEClass = createEClass(CLAUSE);
     createEReference(clauseEClass, CLAUSE__PREDICATE);
-    createEAttribute(clauseEClass, CLAUSE__FACT);
+    createEReference(clauseEClass, CLAUSE__FACT);
     createEReference(clauseEClass, CLAUSE__RULE);
+
+    factEClass = createEClass(FACT);
+    createEAttribute(factEClass, FACT__FACT);
 
     ruleEClass = createEClass(RULE);
     createEReference(ruleEClass, RULE__TERM);
@@ -972,7 +1003,7 @@ public class S78154S78236PackageImpl extends EPackageImpl implements S78154S7823
 
     // Initialize classes and features; add operations and parameters
     initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getModel_Dsl(), this.getPrologDsl(), null, "dsl", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getModel_Model(), this.getPrologDsl(), null, "model", null, 0, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(prologDslEClass, PrologDsl.class, "PrologDsl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getPrologDsl_Program(), this.getProgram(), null, "program", null, 0, 1, PrologDsl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -993,8 +1024,11 @@ public class S78154S78236PackageImpl extends EPackageImpl implements S78154S7823
 
     initEClass(clauseEClass, Clause.class, "Clause", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getClause_Predicate(), this.getPredicate(), null, "predicate", null, 0, 1, Clause.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getClause_Fact(), ecorePackage.getEString(), "fact", null, 0, 1, Clause.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getClause_Fact(), this.getFact(), null, "fact", null, 0, 1, Clause.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getClause_Rule(), this.getRule(), null, "rule", null, 0, 1, Clause.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(factEClass, Fact.class, "Fact", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getFact_Fact(), ecorePackage.getEString(), "fact", null, 0, 1, Fact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(ruleEClass, Rule.class, "Rule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getRule_Term(), this.getTerm(), null, "term", null, 0, 1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
