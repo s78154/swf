@@ -3,26 +3,18 @@
  */
 package beleg.s78154S78236.impl;
 
-import beleg.s78154S78236.ETerm;
+import beleg.s78154S78236.Query;
 import beleg.s78154S78236.Rule;
 import beleg.s78154S78236.S78154S78236Package;
-import beleg.s78154S78236.Term;
-
-import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,8 +23,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link beleg.s78154S78236.impl.RuleImpl#getTerm <em>Term</em>}</li>
- *   <li>{@link beleg.s78154S78236.impl.RuleImpl#getEterms <em>Eterms</em>}</li>
+ *   <li>{@link beleg.s78154S78236.impl.RuleImpl#getQuery <em>Query</em>}</li>
  * </ul>
  * </p>
  *
@@ -41,24 +32,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
 public class RuleImpl extends MinimalEObjectImpl.Container implements Rule
 {
   /**
-   * The cached value of the '{@link #getTerm() <em>Term</em>}' containment reference.
+   * The cached value of the '{@link #getQuery() <em>Query</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getTerm()
+   * @see #getQuery()
    * @generated
    * @ordered
    */
-  protected Term term;
-
-  /**
-   * The cached value of the '{@link #getEterms() <em>Eterms</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getEterms()
-   * @generated
-   * @ordered
-   */
-  protected EList<ETerm> eterms;
+  protected Query query;
 
   /**
    * <!-- begin-user-doc -->
@@ -86,9 +67,9 @@ public class RuleImpl extends MinimalEObjectImpl.Container implements Rule
    * <!-- end-user-doc -->
    * @generated
    */
-  public Term getTerm()
+  public Query getQuery()
   {
-    return term;
+    return query;
   }
 
   /**
@@ -96,13 +77,13 @@ public class RuleImpl extends MinimalEObjectImpl.Container implements Rule
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetTerm(Term newTerm, NotificationChain msgs)
+  public NotificationChain basicSetQuery(Query newQuery, NotificationChain msgs)
   {
-    Term oldTerm = term;
-    term = newTerm;
+    Query oldQuery = query;
+    query = newQuery;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, S78154S78236Package.RULE__TERM, oldTerm, newTerm);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, S78154S78236Package.RULE__QUERY, oldQuery, newQuery);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -113,34 +94,20 @@ public class RuleImpl extends MinimalEObjectImpl.Container implements Rule
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setTerm(Term newTerm)
+  public void setQuery(Query newQuery)
   {
-    if (newTerm != term)
+    if (newQuery != query)
     {
       NotificationChain msgs = null;
-      if (term != null)
-        msgs = ((InternalEObject)term).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - S78154S78236Package.RULE__TERM, null, msgs);
-      if (newTerm != null)
-        msgs = ((InternalEObject)newTerm).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - S78154S78236Package.RULE__TERM, null, msgs);
-      msgs = basicSetTerm(newTerm, msgs);
+      if (query != null)
+        msgs = ((InternalEObject)query).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - S78154S78236Package.RULE__QUERY, null, msgs);
+      if (newQuery != null)
+        msgs = ((InternalEObject)newQuery).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - S78154S78236Package.RULE__QUERY, null, msgs);
+      msgs = basicSetQuery(newQuery, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, S78154S78236Package.RULE__TERM, newTerm, newTerm));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EList<ETerm> getEterms()
-  {
-    if (eterms == null)
-    {
-      eterms = new EObjectContainmentEList<ETerm>(ETerm.class, this, S78154S78236Package.RULE__ETERMS);
-    }
-    return eterms;
+      eNotify(new ENotificationImpl(this, Notification.SET, S78154S78236Package.RULE__QUERY, newQuery, newQuery));
   }
 
   /**
@@ -153,10 +120,8 @@ public class RuleImpl extends MinimalEObjectImpl.Container implements Rule
   {
     switch (featureID)
     {
-      case S78154S78236Package.RULE__TERM:
-        return basicSetTerm(null, msgs);
-      case S78154S78236Package.RULE__ETERMS:
-        return ((InternalEList<?>)getEterms()).basicRemove(otherEnd, msgs);
+      case S78154S78236Package.RULE__QUERY:
+        return basicSetQuery(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -171,10 +136,8 @@ public class RuleImpl extends MinimalEObjectImpl.Container implements Rule
   {
     switch (featureID)
     {
-      case S78154S78236Package.RULE__TERM:
-        return getTerm();
-      case S78154S78236Package.RULE__ETERMS:
-        return getEterms();
+      case S78154S78236Package.RULE__QUERY:
+        return getQuery();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -184,18 +147,13 @@ public class RuleImpl extends MinimalEObjectImpl.Container implements Rule
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case S78154S78236Package.RULE__TERM:
-        setTerm((Term)newValue);
-        return;
-      case S78154S78236Package.RULE__ETERMS:
-        getEterms().clear();
-        getEterms().addAll((Collection<? extends ETerm>)newValue);
+      case S78154S78236Package.RULE__QUERY:
+        setQuery((Query)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -211,11 +169,8 @@ public class RuleImpl extends MinimalEObjectImpl.Container implements Rule
   {
     switch (featureID)
     {
-      case S78154S78236Package.RULE__TERM:
-        setTerm((Term)null);
-        return;
-      case S78154S78236Package.RULE__ETERMS:
-        getEterms().clear();
+      case S78154S78236Package.RULE__QUERY:
+        setQuery((Query)null);
         return;
     }
     super.eUnset(featureID);
@@ -231,10 +186,8 @@ public class RuleImpl extends MinimalEObjectImpl.Container implements Rule
   {
     switch (featureID)
     {
-      case S78154S78236Package.RULE__TERM:
-        return term != null;
-      case S78154S78236Package.RULE__ETERMS:
-        return eterms != null && !eterms.isEmpty();
+      case S78154S78236Package.RULE__QUERY:
+        return query != null;
     }
     return super.eIsSet(featureID);
   }

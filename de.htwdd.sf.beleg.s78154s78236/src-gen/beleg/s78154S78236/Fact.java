@@ -10,12 +10,6 @@ import org.eclipse.emf.ecore.EObject;
  * A representation of the model object '<em><b>Fact</b></em>'.
  * <!-- end-user-doc -->
  *
- * <p>
- * The following features are supported:
- * <ul>
- *   <li>{@link beleg.s78154S78236.Fact#getFact <em>Fact</em>}</li>
- * </ul>
- * </p>
  *
  * @see beleg.s78154S78236.S78154S78236Package#getFact()
  * @model
@@ -23,30 +17,4 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Fact extends EObject
 {
-  /**
-   * Returns the value of the '<em><b>Fact</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Fact</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Fact</em>' attribute.
-   * @see #setFact(String)
-   * @see beleg.s78154S78236.S78154S78236Package#getFact_Fact()
-   * @model
-   * @generated
-   */
-  String getFact();
-
-  /**
-   * Sets the value of the '{@link beleg.s78154S78236.Fact#getFact <em>Fact</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Fact</em>' attribute.
-   * @see #getFact()
-   * @generated
-   */
-  void setFact(String value);
-
 } // Fact

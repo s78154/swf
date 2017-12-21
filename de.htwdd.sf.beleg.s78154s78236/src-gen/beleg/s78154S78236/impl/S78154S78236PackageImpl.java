@@ -463,16 +463,6 @@ public class S78154S78236PackageImpl extends EPackageImpl implements S78154S7823
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getFact_Fact()
-  {
-    return (EAttribute)factEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EClass getRule()
   {
     return ruleEClass;
@@ -483,19 +473,9 @@ public class S78154S78236PackageImpl extends EPackageImpl implements S78154S7823
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getRule_Term()
+  public EReference getRule_Query()
   {
     return (EReference)ruleEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getRule_Eterms()
-  {
-    return (EReference)ruleEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -914,11 +894,9 @@ public class S78154S78236PackageImpl extends EPackageImpl implements S78154S7823
     createEReference(clauseEClass, CLAUSE__RULE);
 
     factEClass = createEClass(FACT);
-    createEAttribute(factEClass, FACT__FACT);
 
     ruleEClass = createEClass(RULE);
-    createEReference(ruleEClass, RULE__TERM);
-    createEReference(ruleEClass, RULE__ETERMS);
+    createEReference(ruleEClass, RULE__QUERY);
 
     predicateEClass = createEClass(PREDICATE);
     createEReference(predicateEClass, PREDICATE__FUNCTOR);
@@ -1003,7 +981,7 @@ public class S78154S78236PackageImpl extends EPackageImpl implements S78154S7823
 
     // Initialize classes and features; add operations and parameters
     initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getModel_Model(), this.getPrologDsl(), null, "model", null, 0, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getModel_Model(), this.getPrologDsl(), null, "model", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(prologDslEClass, PrologDsl.class, "PrologDsl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getPrologDsl_Program(), this.getProgram(), null, "program", null, 0, 1, PrologDsl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1028,11 +1006,9 @@ public class S78154S78236PackageImpl extends EPackageImpl implements S78154S7823
     initEReference(getClause_Rule(), this.getRule(), null, "rule", null, 0, 1, Clause.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(factEClass, Fact.class, "Fact", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getFact_Fact(), ecorePackage.getEString(), "fact", null, 0, 1, Fact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(ruleEClass, Rule.class, "Rule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getRule_Term(), this.getTerm(), null, "term", null, 0, 1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getRule_Eterms(), this.getETerm(), null, "eterms", null, 0, -1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRule_Query(), this.getQuery(), null, "query", null, 0, 1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(predicateEClass, Predicate.class, "Predicate", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getPredicate_Functor(), this.getFunctor(), null, "functor", null, 0, 1, Predicate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

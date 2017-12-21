@@ -3,8 +3,6 @@
  */
 package beleg.s78154S78236;
 
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -15,8 +13,7 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link beleg.s78154S78236.Rule#getTerm <em>Term</em>}</li>
- *   <li>{@link beleg.s78154S78236.Rule#getEterms <em>Eterms</em>}</li>
+ *   <li>{@link beleg.s78154S78236.Rule#getQuery <em>Query</em>}</li>
  * </ul>
  * </p>
  *
@@ -27,45 +24,29 @@ import org.eclipse.emf.ecore.EObject;
 public interface Rule extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Term</b></em>' containment reference.
+   * Returns the value of the '<em><b>Query</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Term</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Query</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Term</em>' containment reference.
-   * @see #setTerm(Term)
-   * @see beleg.s78154S78236.S78154S78236Package#getRule_Term()
+   * @return the value of the '<em>Query</em>' containment reference.
+   * @see #setQuery(Query)
+   * @see beleg.s78154S78236.S78154S78236Package#getRule_Query()
    * @model containment="true"
    * @generated
    */
-  Term getTerm();
+  Query getQuery();
 
   /**
-   * Sets the value of the '{@link beleg.s78154S78236.Rule#getTerm <em>Term</em>}' containment reference.
+   * Sets the value of the '{@link beleg.s78154S78236.Rule#getQuery <em>Query</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Term</em>' containment reference.
-   * @see #getTerm()
+   * @param value the new value of the '<em>Query</em>' containment reference.
+   * @see #getQuery()
    * @generated
    */
-  void setTerm(Term value);
-
-  /**
-   * Returns the value of the '<em><b>Eterms</b></em>' containment reference list.
-   * The list contents are of type {@link beleg.s78154S78236.ETerm}.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Eterms</em>' containment reference list isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Eterms</em>' containment reference list.
-   * @see beleg.s78154S78236.S78154S78236Package#getRule_Eterms()
-   * @model containment="true"
-   * @generated
-   */
-  EList<ETerm> getEterms();
+  void setQuery(Query value);
 
 } // Rule

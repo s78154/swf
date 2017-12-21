@@ -41,6 +41,7 @@ public class S78154S78236Parser extends AbstractContentAssistParser {
 					put(grammarAccess.getQueryAccess().getGroup(), "rule__Query__Group__0");
 					put(grammarAccess.getEPredicateAccess().getGroup(), "rule__EPredicate__Group__0");
 					put(grammarAccess.getClauseAccess().getGroup(), "rule__Clause__Group__0");
+					put(grammarAccess.getFactAccess().getGroup(), "rule__Fact__Group__0");
 					put(grammarAccess.getRuleAccess().getGroup(), "rule__Rule__Group__0");
 					put(grammarAccess.getPredicateAccess().getGroup(), "rule__Predicate__Group__0");
 					put(grammarAccess.getETermAccess().getGroup(), "rule__ETerm__Group__0");
@@ -60,9 +61,7 @@ public class S78154S78236Parser extends AbstractContentAssistParser {
 					put(grammarAccess.getClauseAccess().getPredicateAssignment_0(), "rule__Clause__PredicateAssignment_0");
 					put(grammarAccess.getClauseAccess().getFactAssignment_1_0(), "rule__Clause__FactAssignment_1_0");
 					put(grammarAccess.getClauseAccess().getRuleAssignment_1_1(), "rule__Clause__RuleAssignment_1_1");
-					put(grammarAccess.getFactAccess().getFactAssignment(), "rule__Fact__FactAssignment");
-					put(grammarAccess.getRuleAccess().getTermAssignment_2(), "rule__Rule__TermAssignment_2");
-					put(grammarAccess.getRuleAccess().getEtermsAssignment_3(), "rule__Rule__EtermsAssignment_3");
+					put(grammarAccess.getRuleAccess().getQueryAssignment_1(), "rule__Rule__QueryAssignment_1");
 					put(grammarAccess.getPredicateAccess().getFunctorAssignment_0(), "rule__Predicate__FunctorAssignment_0");
 					put(grammarAccess.getPredicateAccess().getTermAssignment_2(), "rule__Predicate__TermAssignment_2");
 					put(grammarAccess.getPredicateAccess().getEtermsAssignment_3(), "rule__Predicate__EtermsAssignment_3");

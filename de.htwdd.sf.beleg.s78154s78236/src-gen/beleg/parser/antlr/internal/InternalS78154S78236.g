@@ -85,7 +85,7 @@ ruleModel returns [EObject current=null]
 				if ($current==null) {
 					$current = createModelElementForParent(grammarAccess.getModelRule());
 				}
-				set(
+				add(
 					$current,
 					"model",
 					lv_model_0_0,
@@ -93,7 +93,7 @@ ruleModel returns [EObject current=null]
 				afterParserOrEnumRuleCall();
 			}
 		)
-	)
+	)*
 ;
 
 // Entry rule entryRulePrologDsl
@@ -430,17 +430,16 @@ ruleFact returns [EObject current=null]
 }:
 	(
 		(
-			lv_fact_0_0='.'
 			{
-				newLeafNode(lv_fact_0_0, grammarAccess.getFactAccess().getFactFullStopKeyword_0());
-			}
-			{
-				if ($current==null) {
-					$current = createModelElement(grammarAccess.getFactRule());
-				}
-				setWithLastConsumed($current, "fact", lv_fact_0_0, ".");
+				$current = forceCreateModelElement(
+					grammarAccess.getFactAccess().getFactAction_0(),
+					$current);
 			}
 		)
+		otherlv_1='.'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getFactAccess().getFullStopKeyword_1());
+		}
 	)
 ;
 
@@ -464,51 +463,28 @@ ruleRule returns [EObject current=null]
 		{
 			newLeafNode(otherlv_0, grammarAccess.getRuleAccess().getColonHyphenMinusKeyword_0());
 		}
-		otherlv_1='('
-		{
-			newLeafNode(otherlv_1, grammarAccess.getRuleAccess().getLeftParenthesisKeyword_1());
-		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getRuleAccess().getTermTermParserRuleCall_2_0());
+					newCompositeNode(grammarAccess.getRuleAccess().getQueryQueryParserRuleCall_1_0());
 				}
-				lv_term_2_0=ruleTerm
+				lv_query_1_0=ruleQuery
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getRuleRule());
 					}
 					set(
 						$current,
-						"term",
-						lv_term_2_0,
-						"beleg.S78154S78236.Term");
+						"query",
+						lv_query_1_0,
+						"beleg.S78154S78236.Query");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getRuleAccess().getEtermsETermParserRuleCall_3_0());
-				}
-				lv_eterms_3_0=ruleETerm
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getRuleRule());
-					}
-					add(
-						$current,
-						"eterms",
-						lv_eterms_3_0,
-						"beleg.S78154S78236.ETerm");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)*
-		otherlv_4=')'
+		otherlv_2='.'
 		{
-			newLeafNode(otherlv_4, grammarAccess.getRuleAccess().getRightParenthesisKeyword_4());
+			newLeafNode(otherlv_2, grammarAccess.getRuleAccess().getFullStopKeyword_2());
 		}
 	)
 ;

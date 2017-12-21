@@ -31,12 +31,9 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference S78154S78236.ecore#//Clause/fact"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference S78154S78236.ecore#//Clause/rule"/>
     </genClasses>
-    <genClasses ecoreClass="S78154S78236.ecore#//Fact">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute S78154S78236.ecore#//Fact/fact"/>
-    </genClasses>
+    <genClasses ecoreClass="S78154S78236.ecore#//Fact"/>
     <genClasses ecoreClass="S78154S78236.ecore#//Rule">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference S78154S78236.ecore#//Rule/term"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference S78154S78236.ecore#//Rule/eterms"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference S78154S78236.ecore#//Rule/query"/>
     </genClasses>
     <genClasses ecoreClass="S78154S78236.ecore#//Predicate">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference S78154S78236.ecore#//Predicate/functor"/>

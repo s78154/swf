@@ -7,14 +7,19 @@ import beleg.s78154S78236.Model;
 import beleg.s78154S78236.PrologDsl;
 import beleg.s78154S78236.S78154S78236Package;
 
-import org.eclipse.emf.common.notify.Notification;
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,14 +37,14 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 public class ModelImpl extends MinimalEObjectImpl.Container implements Model
 {
   /**
-   * The cached value of the '{@link #getModel() <em>Model</em>}' containment reference.
+   * The cached value of the '{@link #getModel() <em>Model</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getModel()
    * @generated
    * @ordered
    */
-  protected PrologDsl model;
+  protected EList<PrologDsl> model;
 
   /**
    * <!-- begin-user-doc -->
@@ -67,47 +72,13 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * <!-- end-user-doc -->
    * @generated
    */
-  public PrologDsl getModel()
+  public EList<PrologDsl> getModel()
   {
+    if (model == null)
+    {
+      model = new EObjectContainmentEList<PrologDsl>(PrologDsl.class, this, S78154S78236Package.MODEL__MODEL);
+    }
     return model;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetModel(PrologDsl newModel, NotificationChain msgs)
-  {
-    PrologDsl oldModel = model;
-    model = newModel;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, S78154S78236Package.MODEL__MODEL, oldModel, newModel);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setModel(PrologDsl newModel)
-  {
-    if (newModel != model)
-    {
-      NotificationChain msgs = null;
-      if (model != null)
-        msgs = ((InternalEObject)model).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - S78154S78236Package.MODEL__MODEL, null, msgs);
-      if (newModel != null)
-        msgs = ((InternalEObject)newModel).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - S78154S78236Package.MODEL__MODEL, null, msgs);
-      msgs = basicSetModel(newModel, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, S78154S78236Package.MODEL__MODEL, newModel, newModel));
   }
 
   /**
@@ -121,7 +92,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
     switch (featureID)
     {
       case S78154S78236Package.MODEL__MODEL:
-        return basicSetModel(null, msgs);
+        return ((InternalEList<?>)getModel()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -147,13 +118,15 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
       case S78154S78236Package.MODEL__MODEL:
-        setModel((PrologDsl)newValue);
+        getModel().clear();
+        getModel().addAll((Collection<? extends PrologDsl>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -170,7 +143,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
     switch (featureID)
     {
       case S78154S78236Package.MODEL__MODEL:
-        setModel((PrologDsl)null);
+        getModel().clear();
         return;
     }
     super.eUnset(featureID);
@@ -187,7 +160,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
     switch (featureID)
     {
       case S78154S78236Package.MODEL__MODEL:
-        return model != null;
+        return model != null && !model.isEmpty();
     }
     return super.eIsSet(featureID);
   }

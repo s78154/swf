@@ -68,7 +68,7 @@ public interface S78154S78236Package extends EPackage
   int MODEL = 0;
 
   /**
-   * The feature id for the '<em><b>Model</b></em>' containment reference.
+   * The feature id for the '<em><b>Model</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -300,22 +300,13 @@ public interface S78154S78236Package extends EPackage
   int FACT = 7;
 
   /**
-   * The feature id for the '<em><b>Fact</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FACT__FACT = 0;
-
-  /**
    * The number of structural features of the '<em>Fact</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FACT_FEATURE_COUNT = 1;
+  int FACT_FEATURE_COUNT = 0;
 
   /**
    * The meta object id for the '{@link beleg.s78154S78236.impl.RuleImpl <em>Rule</em>}' class.
@@ -328,22 +319,13 @@ public interface S78154S78236Package extends EPackage
   int RULE = 8;
 
   /**
-   * The feature id for the '<em><b>Term</b></em>' containment reference.
+   * The feature id for the '<em><b>Query</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int RULE__TERM = 0;
-
-  /**
-   * The feature id for the '<em><b>Eterms</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int RULE__ETERMS = 1;
+  int RULE__QUERY = 0;
 
   /**
    * The number of structural features of the '<em>Rule</em>' class.
@@ -352,7 +334,7 @@ public interface S78154S78236Package extends EPackage
    * @generated
    * @ordered
    */
-  int RULE_FEATURE_COUNT = 2;
+  int RULE_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link beleg.s78154S78236.impl.PredicateImpl <em>Predicate</em>}' class.
@@ -830,10 +812,10 @@ public interface S78154S78236Package extends EPackage
   EClass getModel();
 
   /**
-   * Returns the meta object for the containment reference '{@link beleg.s78154S78236.Model#getModel <em>Model</em>}'.
+   * Returns the meta object for the containment reference list '{@link beleg.s78154S78236.Model#getModel <em>Model</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Model</em>'.
+   * @return the meta object for the containment reference list '<em>Model</em>'.
    * @see beleg.s78154S78236.Model#getModel()
    * @see #getModel()
    * @generated
@@ -1021,17 +1003,6 @@ public interface S78154S78236Package extends EPackage
   EClass getFact();
 
   /**
-   * Returns the meta object for the attribute '{@link beleg.s78154S78236.Fact#getFact <em>Fact</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Fact</em>'.
-   * @see beleg.s78154S78236.Fact#getFact()
-   * @see #getFact()
-   * @generated
-   */
-  EAttribute getFact_Fact();
-
-  /**
    * Returns the meta object for class '{@link beleg.s78154S78236.Rule <em>Rule</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1042,26 +1013,15 @@ public interface S78154S78236Package extends EPackage
   EClass getRule();
 
   /**
-   * Returns the meta object for the containment reference '{@link beleg.s78154S78236.Rule#getTerm <em>Term</em>}'.
+   * Returns the meta object for the containment reference '{@link beleg.s78154S78236.Rule#getQuery <em>Query</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Term</em>'.
-   * @see beleg.s78154S78236.Rule#getTerm()
+   * @return the meta object for the containment reference '<em>Query</em>'.
+   * @see beleg.s78154S78236.Rule#getQuery()
    * @see #getRule()
    * @generated
    */
-  EReference getRule_Term();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link beleg.s78154S78236.Rule#getEterms <em>Eterms</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Eterms</em>'.
-   * @see beleg.s78154S78236.Rule#getEterms()
-   * @see #getRule()
-   * @generated
-   */
-  EReference getRule_Eterms();
+  EReference getRule_Query();
 
   /**
    * Returns the meta object for class '{@link beleg.s78154S78236.Predicate <em>Predicate</em>}'.
@@ -1479,7 +1439,7 @@ public interface S78154S78236Package extends EPackage
     EClass MODEL = eINSTANCE.getModel();
 
     /**
-     * The meta object literal for the '<em><b>Model</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Model</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -1637,14 +1597,6 @@ public interface S78154S78236Package extends EPackage
     EClass FACT = eINSTANCE.getFact();
 
     /**
-     * The meta object literal for the '<em><b>Fact</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute FACT__FACT = eINSTANCE.getFact_Fact();
-
-    /**
      * The meta object literal for the '{@link beleg.s78154S78236.impl.RuleImpl <em>Rule</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1655,20 +1607,12 @@ public interface S78154S78236Package extends EPackage
     EClass RULE = eINSTANCE.getRule();
 
     /**
-     * The meta object literal for the '<em><b>Term</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Query</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference RULE__TERM = eINSTANCE.getRule_Term();
-
-    /**
-     * The meta object literal for the '<em><b>Eterms</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference RULE__ETERMS = eINSTANCE.getRule_Eterms();
+    EReference RULE__QUERY = eINSTANCE.getRule_Query();
 
     /**
      * The meta object literal for the '{@link beleg.s78154S78236.impl.PredicateImpl <em>Predicate</em>}' class.

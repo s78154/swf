@@ -29,10 +29,10 @@ public class S78154S78236GrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cModelPrologDslParserRuleCall_0 = (RuleCall)cModelAssignment.eContents().get(0);
 		
 		//Model:
-		//	model=PrologDsl;
+		//	model+=PrologDsl*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//model=PrologDsl
+		//model+=PrologDsl*
 		public Assignment getModelAssignment() { return cModelAssignment; }
 		
 		//PrologDsl
@@ -198,57 +198,49 @@ public class S78154S78236GrammarAccess extends AbstractGrammarElementFinder {
 	}
 	public class FactElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "beleg.S78154S78236.Fact");
-		private final Assignment cFactAssignment = (Assignment)rule.eContents().get(1);
-		private final Keyword cFactFullStopKeyword_0 = (Keyword)cFactAssignment.eContents().get(0);
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cFactAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cFullStopKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		
 		//Fact:
-		//	fact=".";
+		//	{Fact} ".";
 		@Override public ParserRule getRule() { return rule; }
 		
-		//fact="."
-		public Assignment getFactAssignment() { return cFactAssignment; }
+		//{Fact} "."
+		public Group getGroup() { return cGroup; }
+		
+		//{Fact}
+		public Action getFactAction_0() { return cFactAction_0; }
 		
 		//"."
-		public Keyword getFactFullStopKeyword_0() { return cFactFullStopKeyword_0; }
+		public Keyword getFullStopKeyword_1() { return cFullStopKeyword_1; }
 	}
 	public class RuleElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "beleg.S78154S78236.Rule");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cColonHyphenMinusKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cTermAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cTermTermParserRuleCall_2_0 = (RuleCall)cTermAssignment_2.eContents().get(0);
-		private final Assignment cEtermsAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cEtermsETermParserRuleCall_3_0 = (RuleCall)cEtermsAssignment_3.eContents().get(0);
-		private final Keyword cRightParenthesisKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cQueryAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cQueryQueryParserRuleCall_1_0 = (RuleCall)cQueryAssignment_1.eContents().get(0);
+		private final Keyword cFullStopKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		
 		//Rule:
-		//	":-" "(" term=Term eterms+=ETerm* ")";
+		//	":-" query=Query ".";
 		@Override public ParserRule getRule() { return rule; }
 		
-		//":-" "(" term=Term eterms+=ETerm* ")"
+		//":-" query=Query "."
 		public Group getGroup() { return cGroup; }
 		
 		//":-"
 		public Keyword getColonHyphenMinusKeyword_0() { return cColonHyphenMinusKeyword_0; }
 		
-		//"("
-		public Keyword getLeftParenthesisKeyword_1() { return cLeftParenthesisKeyword_1; }
+		//query=Query
+		public Assignment getQueryAssignment_1() { return cQueryAssignment_1; }
 		
-		//term=Term
-		public Assignment getTermAssignment_2() { return cTermAssignment_2; }
+		//Query
+		public RuleCall getQueryQueryParserRuleCall_1_0() { return cQueryQueryParserRuleCall_1_0; }
 		
-		//Term
-		public RuleCall getTermTermParserRuleCall_2_0() { return cTermTermParserRuleCall_2_0; }
-		
-		//eterms+=ETerm*
-		public Assignment getEtermsAssignment_3() { return cEtermsAssignment_3; }
-		
-		//ETerm
-		public RuleCall getEtermsETermParserRuleCall_3_0() { return cEtermsETermParserRuleCall_3_0; }
-		
-		//")"
-		public Keyword getRightParenthesisKeyword_4() { return cRightParenthesisKeyword_4; }
+		//"."
+		public Keyword getFullStopKeyword_2() { return cFullStopKeyword_2; }
 	}
 	public class PredicateElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "beleg.S78154S78236.Predicate");
@@ -706,7 +698,7 @@ public class S78154S78236GrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//Model:
-	//	model=PrologDsl;
+	//	model+=PrologDsl*;
 	public ModelElements getModelAccess() {
 		return pModel;
 	}
@@ -776,7 +768,7 @@ public class S78154S78236GrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Fact:
-	//	fact=".";
+	//	{Fact} ".";
 	public FactElements getFactAccess() {
 		return pFact;
 	}
@@ -786,7 +778,7 @@ public class S78154S78236GrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Rule:
-	//	":-" "(" term=Term eterms+=ETerm* ")";
+	//	":-" query=Query ".";
 	public RuleElements getRuleAccess() {
 		return pRule;
 	}
@@ -935,7 +927,7 @@ public class S78154S78236GrammarAccess extends AbstractGrammarElementFinder {
 		return getEVarAccess().getRule();
 	}
 	
-	//terminal ID:
+	//@ Override terminal ID:
 	//	'^'? 'a'..'z' ('A'..'Z' | 'a'..'z' | '0'..'9' | '_')*;
 	public TerminalRule getIDRule() {
 		return tID;

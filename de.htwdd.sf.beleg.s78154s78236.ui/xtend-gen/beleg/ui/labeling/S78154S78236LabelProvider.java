@@ -8,6 +8,7 @@ import beleg.s78154S78236.Clause;
 import beleg.s78154S78236.EAtom;
 import beleg.s78154S78236.EFolge;
 import beleg.s78154S78236.EList;
+import beleg.s78154S78236.EPredicate;
 import beleg.s78154S78236.ETerm;
 import beleg.s78154S78236.EVar;
 import beleg.s78154S78236.EmptyList;
@@ -24,7 +25,6 @@ import beleg.s78154S78236.PrologDsl;
 import beleg.s78154S78236.Query;
 import beleg.s78154S78236.Rule;
 import beleg.s78154S78236.Term;
-import com.google.common.base.Objects;
 import com.google.inject.Inject;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider;
@@ -62,7 +62,7 @@ public class S78154S78236LabelProvider extends DefaultEObjectLabelProvider {
   }
   
   public String text(final Fact e) {
-    return this.getText(e.getFact());
+    return ".";
   }
   
   public String text(final Rule e) {
@@ -71,6 +71,10 @@ public class S78154S78236LabelProvider extends DefaultEObjectLabelProvider {
   
   public String text(final Predicate e) {
     return "Predicate";
+  }
+  
+  public String text(final EPredicate e) {
+    return "EPredicate";
   }
   
   public String text(final Functor e) {
@@ -82,23 +86,23 @@ public class S78154S78236LabelProvider extends DefaultEObjectLabelProvider {
   }
   
   public String text(final ETerm e) {
-    return "Term";
+    return "ETerm";
   }
   
   public String text(final Atom e) {
     Ident _ident = e.getIdent();
-    boolean _notEquals = (!Objects.equal(_ident, null));
-    if (_notEquals) {
+    boolean _tripleNotEquals = (_ident != null);
+    if (_tripleNotEquals) {
       return this.getText(e.getIdent());
     } else {
       String _number = e.getNumber();
-      boolean _notEquals_1 = (!Objects.equal(_number, null));
-      if (_notEquals_1) {
+      boolean _tripleNotEquals_1 = (_number != null);
+      if (_tripleNotEquals_1) {
         return this.getText(e.getNumber());
       } else {
         EVar _evar = e.getEvar();
-        boolean _notEquals_2 = (!Objects.equal(_evar, null));
-        if (_notEquals_2) {
+        boolean _tripleNotEquals_2 = (_evar != null);
+        if (_tripleNotEquals_2) {
           return this.getText(e.getEvar());
         }
       }
@@ -108,13 +112,13 @@ public class S78154S78236LabelProvider extends DefaultEObjectLabelProvider {
   
   public String text(final List e) {
     EmptyList _empty = e.getEmpty();
-    boolean _notEquals = (!Objects.equal(_empty, null));
-    if (_notEquals) {
+    boolean _tripleNotEquals = (_empty != null);
+    if (_tripleNotEquals) {
       return this.getText(e.getEmpty());
     } else {
       NonEmptyList _nonEmptyList = e.getNonEmptyList();
-      boolean _notEquals_1 = (!Objects.equal(_nonEmptyList, null));
-      if (_notEquals_1) {
+      boolean _tripleNotEquals_1 = (_nonEmptyList != null);
+      if (_tripleNotEquals_1) {
         return this.getText(e.getNonEmptyList());
       }
     }
@@ -134,15 +138,15 @@ public class S78154S78236LabelProvider extends DefaultEObjectLabelProvider {
   }
   
   public String text(final EFolge e) {
-    return "Folge";
+    return "EFolge";
   }
   
   public String text(final EList e) {
-    return "List";
+    return "EList";
   }
   
   public String text(final EAtom e) {
-    return "Atom";
+    return "EAtom";
   }
   
   public String text(final Ident e) {

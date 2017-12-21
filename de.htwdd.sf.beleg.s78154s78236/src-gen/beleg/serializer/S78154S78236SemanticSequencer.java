@@ -298,16 +298,10 @@ public class S78154S78236SemanticSequencer extends AbstractDelegatingSemanticSeq
 	 *     Fact returns Fact
 	 *
 	 * Constraint:
-	 *     fact='.'
+	 *     {Fact}
 	 */
 	protected void sequence_Fact(ISerializationContext context, Fact semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, S78154S78236Package.Literals.FACT__FACT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, S78154S78236Package.Literals.FACT__FACT));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getFactAccess().getFactFullStopKeyword_0(), semanticObject.getFact());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -376,16 +370,10 @@ public class S78154S78236SemanticSequencer extends AbstractDelegatingSemanticSeq
 	 *     Model returns Model
 	 *
 	 * Constraint:
-	 *     model=PrologDsl
+	 *     model+=PrologDsl+
 	 */
 	protected void sequence_Model(ISerializationContext context, Model semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, S78154S78236Package.Literals.MODEL__MODEL) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, S78154S78236Package.Literals.MODEL__MODEL));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getModelAccess().getModelPrologDslParserRuleCall_0(), semanticObject.getModel());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -463,10 +451,16 @@ public class S78154S78236SemanticSequencer extends AbstractDelegatingSemanticSeq
 	 *     Rule returns Rule
 	 *
 	 * Constraint:
-	 *     (term=Term eterms+=ETerm*)
+	 *     query=Query
 	 */
 	protected void sequence_Rule(ISerializationContext context, Rule semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, S78154S78236Package.Literals.RULE__QUERY) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, S78154S78236Package.Literals.RULE__QUERY));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getRuleAccess().getQueryQueryParserRuleCall_1_0(), semanticObject.getQuery());
+		feeder.finish();
 	}
 	
 	
