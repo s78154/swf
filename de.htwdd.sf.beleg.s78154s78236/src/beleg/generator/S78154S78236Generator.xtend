@@ -3,23 +3,163 @@
  */
 package beleg.generator
 
+import beleg.s78154S78236.Atom
+import beleg.s78154S78236.Clause
+import beleg.s78154S78236.EVar
+import beleg.s78154S78236.Exquery
+import beleg.s78154S78236.Fact
+import beleg.s78154S78236.Folge
+import beleg.s78154S78236.Ident
+import beleg.s78154S78236.List
+import beleg.s78154S78236.NonEmptyList
+import beleg.s78154S78236.Predicate
+import beleg.s78154S78236.Program
+import beleg.s78154S78236.PrologDsl
+import beleg.s78154S78236.Query
+import beleg.s78154S78236.Rule
+import beleg.s78154S78236.Term
+import org.eclipse.emf.common.util.TreeIterator;
+import org.eclipse.emf.ecore.EObject
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
-
+import org.eclipse.xtext.xbase.lib.IteratorExtensions;
 /**
  * Generates code from your model files on save.
  * 
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#code-generation
  */
+ 
+@SuppressWarnings("all")
 class S78154S78236Generator extends AbstractGenerator {
 
+	String code
+	
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
-//		fsa.generateFile('greetings.txt', 'People to greet: ' + 
-//			resource.allContents
-//				.filter(Greeting)
-//				.map[name]
-//				.join(', '))
+		code = '';
+
+		//gibt Tausende Seiten im Netz zu der Thematik von doGenerate und alle nutzen diese Vorgehensweise !!
+		//die aus der Vorlesung funktioniert einfach nicht -> TreeIterator akzeptiert unerklärlicherweise kein EObject...
+		
+		for (e : resource.allContents.toIterable.filter(typeof(PrologDsl))) { 
+			e.dump
+		}
 	}
+	
+	def conc(String str) {
+		code = code + str;
+	}
+	
+	//TODO: dump Code überprüfen - bis jetzt nur kopiert 
+	//und etwas an unsere Grammatik angepasst und getestet ob die automatische Generierung in xten-gen - beleg.generator funktioniert
+	//missmatch mit PrologDsl entsteht dadurch das einige Dump Funktionen noch nicht existieren -> epredicates, eatom, elist...
+	def dump(PrologDsl d) {
+		conc('(prolog (quote ')
+		d.program.dump
+		conc(' )\n(quote')
+		d.exQuery.dump
+		conc(' ))')
+	}	
+	
+	def dump(Program p) {
+		conc('(')
+		for (c : p.clauses)
+			c.dump
+		conc(')')
+	}
+	
+	def dump(Clause c) {
+		conc('\n')
+		if (c.fact != null) {
+			c.fact.dump
+		}
+		else if (c.rule != null) {
+			c.rule.dump
+		}
+	}
+
+	def dump(Exquery e) {
+		dump(e.query)
+	}
+	
+	def dump(Query q) {
+		conc('(')
+		for (p : q.epredicates)
+			p.dump
+		conc(')')
+	}
+	
+	def dump(Predicate p) {
+		conc('(')
+		p.functor.dump
+		for (t:p.eterms)
+			t.dump
+		conc(')')
+	}
+	
+	def dump(Fact f) {
+		conc(' ( ')
+		conc(' ) ')
+	}
+
+	def dump(Rule r) {
+		conc(' ( ')
+		// r.predicate.dump TODO: Grammatik nochmal anschauen
+		conc(' ')
+		for (p:r.query.epredicates)
+			p.dump
+		conc(' ) ')
+	}
+
+	def dump(Term t) {
+		if (t.atom != null) {
+			t.atom.dump
+		} else if (t.list != null) {
+			t.list.dump
+		}
+	}
+
+	def dump(Atom a) {
+		if(a.number != null) a.number.dump
+		if(a.evar != null) a.evar.dump
+		if(a.ident != null) a.ident.dump
+	}
+
+	def dump(List l) {
+		if (l.empty != null) {
+			conc(' () ')	
+		} else
+			l.nonEmptyList.dump
+	}
+	
+	def dump(NonEmptyList n) {
+		if (n.efolge != null) {
+			n.efolge.dump			
+		}
+		else if (n.elist != null) {
+			conc(' ( cons ')
+			n.elist.dump
+			conc(' )')
+		}
+	}
+	
+	def dump(Folge f) {
+		if (f.eatoms.isEmpty) {
+			conc(' ()')
+		} else {
+			conc(' ( cons ')
+			f.eatoms.remove(0).dump
+			f.dump
+			conc(')')			
+		}
+	}
+
+	def dump(EVar v) {
+		conc(' ' + v.variable + ' ')
+	}
+
+	def dump(Ident i) {
+		conc(' ' + i.ident + ' ')
+	}	
 }

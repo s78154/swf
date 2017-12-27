@@ -3,7 +3,25 @@
  */
 package beleg.generator;
 
-import org.eclipse.emf.common.util.TreeIterator;
+import beleg.s78154S78236.Atom;
+import beleg.s78154S78236.Clause;
+import beleg.s78154S78236.EVar;
+import beleg.s78154S78236.EmptyList;
+import beleg.s78154S78236.Exquery;
+import beleg.s78154S78236.Fact;
+import beleg.s78154S78236.Folge;
+import beleg.s78154S78236.Ident;
+import beleg.s78154S78236.List;
+import beleg.s78154S78236.NonEmptyList;
+import beleg.s78154S78236.Predicate;
+import beleg.s78154S78236.Program;
+import beleg.s78154S78236.PrologDsl;
+import beleg.s78154S78236.Query;
+import beleg.s78154S78236.Rule;
+import beleg.s78154S78236.Term;
+import com.google.common.base.Objects;
+import com.google.common.collect.Iterables;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtext.generator.AbstractGenerator;
@@ -11,44 +29,162 @@ import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
 import org.eclipse.xtext.xbase.lib.IteratorExtensions;
 
-import beleg.s78154S78236.Model;
-
 /**
  * Generates code from your model files on save.
  * 
- * See
- * https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#code-generation
+ * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#code-generation
  */
 @SuppressWarnings("all")
 public class S78154S78236Generator extends AbstractGenerator {
-
-	String code;
-
-	@Override
-	public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
-		code = "";
-
-		TreeIterator<EObject> eList = resource.getAllContents();
-		// Iterable<EObject> eIterable = IteratorExtensions.toIterable(eList);
-		// Iterable<Model> filterObject =
-
-		while (eList.hasNext()) {
-			EObject e = eList.next();
-			if (e instanceof Model) {
-				System.out.print("Juhu es klappt");
-				Model model = (Model) e;
-				dump(model);
-			}
-		}
-
-	}
-
-	public void dump(Model e) {
-		
-		concat("Das ist ein voll cooles Model");
-	}
-	
-	public String concat(String input) {
-		return (code += input);
-	}
+  private String code;
+  
+  @Override
+  public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
+    this.code = "";
+    Iterable<PrologDsl> _filter = Iterables.<PrologDsl>filter(IteratorExtensions.<EObject>toIterable(resource.getAllContents()), PrologDsl.class);
+    for (final PrologDsl e : _filter) {
+      this.dump(e);
+    }
+  }
+  
+  public String conc(final String str) {
+    return this.code = (this.code + str);
+  }
+  
+  public String dump(final PrologDsl d) {
+    String _xblockexpression = null;
+    {
+      this.conc("(prolog (quote ");
+      this.dump(d.getProgram());
+      this.conc(" )\n(quote");
+      this.dump(d.getExQuery());
+      _xblockexpression = this.conc(" ))");
+    }
+    return _xblockexpression;
+  }
+  
+  public String dump(final Program p) {
+    String _xblockexpression = null;
+    {
+      this.conc("(");
+      EList<Clause> _clauses = p.getClauses();
+      for (final Clause c : _clauses) {
+        this.dump(c);
+      }
+      _xblockexpression = this.conc(")");
+    }
+    return _xblockexpression;
+  }
+  
+  public String dump(final Clause c) {
+    String _xblockexpression = null;
+    {
+      this.conc("\n");
+      String _xifexpression = null;
+      Fact _fact = c.getFact();
+      boolean _notEquals = (!Objects.equal(_fact, null));
+      if (_notEquals) {
+        _xifexpression = this.dump(c.getFact());
+      } else {
+        String _xifexpression_1 = null;
+        Rule _rule = c.getRule();
+        boolean _notEquals_1 = (!Objects.equal(_rule, null));
+        if (_notEquals_1) {
+          _xifexpression_1 = this.dump(c.getRule());
+        }
+        _xifexpression = _xifexpression_1;
+      }
+      _xblockexpression = _xifexpression;
+    }
+    return _xblockexpression;
+  }
+  
+  public String dump(final Exquery e) {
+    return this.dump(e.getQuery());
+  }
+  
+  public String dump(final Query q) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nType mismatch: cannot convert from EPredicate to PrologDsl");
+  }
+  
+  public String dump(final Predicate p) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nType mismatch: cannot convert from Functor to PrologDsl"
+      + "\nType mismatch: cannot convert from ETerm to PrologDsl");
+  }
+  
+  public String dump(final Fact f) {
+    String _xblockexpression = null;
+    {
+      this.conc(" ( ");
+      _xblockexpression = this.conc(" ) ");
+    }
+    return _xblockexpression;
+  }
+  
+  public String dump(final Rule r) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nType mismatch: cannot convert from EPredicate to PrologDsl");
+  }
+  
+  public String dump(final Term t) {
+    String _xifexpression = null;
+    Atom _atom = t.getAtom();
+    boolean _notEquals = (!Objects.equal(_atom, null));
+    if (_notEquals) {
+      _xifexpression = this.dump(t.getAtom());
+    } else {
+      String _xifexpression_1 = null;
+      List _list = t.getList();
+      boolean _notEquals_1 = (!Objects.equal(_list, null));
+      if (_notEquals_1) {
+        _xifexpression_1 = this.dump(t.getList());
+      }
+      _xifexpression = _xifexpression_1;
+    }
+    return _xifexpression;
+  }
+  
+  public String dump(final Atom a) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nType mismatch: cannot convert from String to PrologDsl");
+  }
+  
+  public String dump(final List l) {
+    String _xifexpression = null;
+    EmptyList _empty = l.getEmpty();
+    boolean _notEquals = (!Objects.equal(_empty, null));
+    if (_notEquals) {
+      _xifexpression = this.conc(" () ");
+    } else {
+      _xifexpression = this.dump(l.getNonEmptyList());
+    }
+    return _xifexpression;
+  }
+  
+  public String dump(final NonEmptyList n) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nType mismatch: cannot convert from EFolge to PrologDsl"
+      + "\nType mismatch: cannot convert from EList to PrologDsl");
+  }
+  
+  public Object dump(final Folge f) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nType mismatch: cannot convert from EAtom to PrologDsl");
+  }
+  
+  public String dump(final EVar v) {
+    String _variable = v.getVariable();
+    String _plus = (" " + _variable);
+    String _plus_1 = (_plus + " ");
+    return this.conc(_plus_1);
+  }
+  
+  public String dump(final Ident i) {
+    String _ident = i.getIdent();
+    String _plus = (" " + _ident);
+    String _plus_1 = (_plus + " ");
+    return this.conc(_plus_1);
+  }
 }
