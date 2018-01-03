@@ -3,21 +3,7 @@
  */
 package beleg.generator
 
-import beleg.s78154S78236.Atom
-import beleg.s78154S78236.Clause
-import beleg.s78154S78236.EVar
-import beleg.s78154S78236.Exquery
-import beleg.s78154S78236.Fact
-import beleg.s78154S78236.Folge
-import beleg.s78154S78236.Ident
-import beleg.s78154S78236.List
-import beleg.s78154S78236.NonEmptyList
-import beleg.s78154S78236.Predicate
-import beleg.s78154S78236.Program
-import beleg.s78154S78236.PrologDsl
-import beleg.s78154S78236.Query
-import beleg.s78154S78236.Rule
-import beleg.s78154S78236.Term
+import beleg.s78154S78236.*
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.emf.ecore.resource.Resource
@@ -25,6 +11,8 @@ import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
 import org.eclipse.xtext.xbase.lib.IteratorExtensions;
+
+
 /**
  * Generates code from your model files on save.
  * 
@@ -41,125 +29,188 @@ class S78154S78236Generator extends AbstractGenerator {
 
 		//gibt Tausende Seiten im Netz zu der Thematik von doGenerate und alle nutzen diese Vorgehensweise !!
 		//die aus der Vorlesung funktioniert einfach nicht -> TreeIterator akzeptiert unerklärlicherweise kein EObject...
-		
+		System.out.println("Transformation gestartet")		
 		for (e : resource.allContents.toIterable.filter(typeof(PrologDsl))) { 
-			e.dump
+			e.transform
 		}
+		System.out.println("Code: \r\n" + code)
+		fsa.generateFile("beleg_prolog.lsp", code)
+		System.out.println(resource.resourceSet.URIConverter.normalize(resource.URI.trimFileExtension.appendFileExtension("gen")).toFileString);
+		System.out.println("Schreibvorgang beendet")
 	}
 	
 	def conc(String str) {
 		code = code + str;
 	}
 	
-	//TODO: dump Code überprüfen - bis jetzt nur kopiert 
-	//und etwas an unsere Grammatik angepasst und getestet ob die automatische Generierung in xten-gen - beleg.generator funktioniert
-	//missmatch mit PrologDsl entsteht dadurch das einige Dump Funktionen noch nicht existieren -> epredicates, eatom, elist...
-	def dump(PrologDsl d) {
-		conc('(prolog (quote ')
-		d.program.dump
-		conc(' )\n(quote')
-		d.exQuery.dump
-		conc(' ))')
-	}	
-	
-	def dump(Program p) {
-		conc('(')
-		for (c : p.clauses)
-			c.dump
-		conc(')')
+	//Eingangspunkt für Transformation
+	def transform(PrologDsl d) {
+		conc("(prolog (quote ")
+		d.program.transform
+		conc(")")
+		newline()
+		conc("(quote ")
+		d.exQuery.transform
+		conc("))")
 	}
 	
-	def dump(Clause c) {
-		conc('\n')
+	def transform(Program p) {
+		conc("(")
+		for (clause : p.clauses)
+			clause.transform
+		conc(")")
+	}
+	
+	def transform(Query q) {
+		conc("(")
+		q.predicate.transform
+		for (predicate : q.epredicates)
+			predicate.transform
+		conc(")")
+	}
+	
+	def transform(Exquery e) {
+		e.query.transform
+	}
+	
+		
+	def transform(Clause c) {
+		conc("(")
+		c.predicate.transform
+		conc(")")
+		
 		if (c.fact != null) {
-			c.fact.dump
+			c.fact.transform
 		}
 		else if (c.rule != null) {
-			c.rule.dump
+			c.rule.transform
 		}
 	}
-
-	def dump(Exquery e) {
-		dump(e.query)
-	}
 	
-	def dump(Query q) {
-		conc('(')
-		for (p : q.epredicates)
-			p.dump
-		conc(')')
-	}
-	
-	def dump(Predicate p) {
-		conc('(')
-		p.functor.dump
-		for (t:p.eterms)
-			t.dump
-		conc(')')
-	}
-	
-	def dump(Fact f) {
-		conc(' ( ')
-		conc(' ) ')
+	def transform(Fact f) {
+		newline()
 	}
 
-	def dump(Rule r) {
-		conc(' ( ')
-		// r.predicate.dump TODO: Grammatik nochmal anschauen
-		conc(' ')
-		for (p:r.query.epredicates)
-			p.dump
-		conc(' ) ')
+	def transform(Rule r) {
+		conc("(")
+		r.query.predicate.transform
+		for (epredicate : r.query.epredicates){
+			epredicate.transform
+		}
+			
+		conc(")")
 	}
+	
+	def space(){
+		conc(" ")
+	}
+	
+	def newline(){
+		conc("\r\n")
+	}
+	
+	def transform(Predicate p) {
+		conc("(")
+		p.functor.transform
+		space()
+		p.term.transform
+		for (eterm : p.eterms){
+			space()
+			eterm.transform
+		}
+		conc(")")
+	}
+	
+	def transform(EPredicate ep){
+		ep.predicate.transform
+	}
+	
+	def transform(Functor f){
+		f.ident.transform
+	}
+	
 
-	def dump(Term t) {
+	def transform(Term t) {
 		if (t.atom != null) {
-			t.atom.dump
+			t.atom.transform
 		} else if (t.list != null) {
-			t.list.dump
+			t.list.transform
 		}
 	}
-
-	def dump(Atom a) {
-		if(a.number != null) a.number.dump
-		if(a.evar != null) a.evar.dump
-		if(a.ident != null) a.ident.dump
+	
+	def transform(ETerm et){
+		et.term.transform
 	}
 
-	def dump(List l) {
-		if (l.empty != null) {
-			conc(' () ')	
-		} else
-			l.nonEmptyList.dump
+	def transform(Atom a) {
+		if(a.ident != null){
+			a.ident.transform
+		} 
+		if(a.number != null) {
+			conc(a.number)
+		}
+		if(a.evar != null) {
+			a.evar.transform
+		}
 	}
 	
-	def dump(NonEmptyList n) {
+	def transform(EAtom ea){
+		ea.atom.transform
+	}
+
+	def transform(List l) {
+		if (l.empty != null) {
+			l.empty.transform	
+		} else
+			l.nonEmptyList.transform
+	}
+	
+	def transform(EmptyList e){
+		conc("()")
+	}
+	
+	def transform(EList el){
+		el.atom.transform
+		el.term.transform
+	}
+	
+	def transform(NonEmptyList n) {
 		if (n.efolge != null) {
-			n.efolge.dump			
+			n.efolge.transform			
 		}
 		else if (n.elist != null) {
-			conc(' ( cons ')
-			n.elist.dump
-			conc(' )')
+			conc("(cons)")
+			n.elist.transform
+			conc(")")
 		}
 	}
 	
-	def dump(Folge f) {
-		if (f.eatoms.isEmpty) {
-			conc(' ()')
-		} else {
-			conc(' ( cons ')
-			f.eatoms.remove(0).dump
-			f.dump
-			conc(')')			
+	def transform(Folge f) {
+		
+		conc("cons ") 
+		f.atom.transform
+		
+		for(ea : f.eatoms){
+			conc("(")
+			ea.transform
+		}
+		
+		conc ("()")
+		
+		for(ea : f.eatoms){
+			conc(")");
 		}
 	}
-
-	def dump(EVar v) {
-		conc(' ' + v.variable + ' ')
+	
+	def transform(EFolge ef){
+		ef.folge.transform
+	}
+	
+	def transform(EVar v) {
+		conc(v.variable)
 	}
 
-	def dump(Ident i) {
-		conc(' ' + i.ident + ' ')
+	def transform(Ident i) {
+		conc(i.ident)
 	}	
 }

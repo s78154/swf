@@ -5,11 +5,16 @@ package beleg.generator;
 
 import beleg.s78154S78236.Atom;
 import beleg.s78154S78236.Clause;
+import beleg.s78154S78236.EAtom;
+import beleg.s78154S78236.EFolge;
+import beleg.s78154S78236.EPredicate;
+import beleg.s78154S78236.ETerm;
 import beleg.s78154S78236.EVar;
 import beleg.s78154S78236.EmptyList;
 import beleg.s78154S78236.Exquery;
 import beleg.s78154S78236.Fact;
 import beleg.s78154S78236.Folge;
+import beleg.s78154S78236.Functor;
 import beleg.s78154S78236.Ident;
 import beleg.s78154S78236.List;
 import beleg.s78154S78236.NonEmptyList;
@@ -41,56 +46,83 @@ public class S78154S78236Generator extends AbstractGenerator {
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
     this.code = "";
+    System.out.println("Transformation gestartet");
     Iterable<PrologDsl> _filter = Iterables.<PrologDsl>filter(IteratorExtensions.<EObject>toIterable(resource.getAllContents()), PrologDsl.class);
     for (final PrologDsl e : _filter) {
-      this.dump(e);
+      this.transform(e);
     }
+    System.out.println(("Code: \r\n" + this.code));
+    fsa.generateFile("beleg_prolog.lsp", this.code);
+    System.out.println(resource.getResourceSet().getURIConverter().normalize(resource.getURI().trimFileExtension().appendFileExtension("gen")).toFileString());
+    System.out.println("Schreibvorgang beendet");
   }
   
   public String conc(final String str) {
     return this.code = (this.code + str);
   }
   
-  public String dump(final PrologDsl d) {
+  public String transform(final PrologDsl d) {
     String _xblockexpression = null;
     {
       this.conc("(prolog (quote ");
-      this.dump(d.getProgram());
-      this.conc(" )\n(quote");
-      this.dump(d.getExQuery());
-      _xblockexpression = this.conc(" ))");
+      this.transform(d.getProgram());
+      this.conc(")");
+      this.newline();
+      this.conc("(quote ");
+      this.transform(d.getExQuery());
+      _xblockexpression = this.conc("))");
     }
     return _xblockexpression;
   }
   
-  public String dump(final Program p) {
+  public String transform(final Program p) {
     String _xblockexpression = null;
     {
       this.conc("(");
       EList<Clause> _clauses = p.getClauses();
-      for (final Clause c : _clauses) {
-        this.dump(c);
+      for (final Clause clause : _clauses) {
+        this.transform(clause);
       }
       _xblockexpression = this.conc(")");
     }
     return _xblockexpression;
   }
   
-  public String dump(final Clause c) {
+  public String transform(final Query q) {
     String _xblockexpression = null;
     {
-      this.conc("\n");
+      this.conc("(");
+      this.transform(q.getPredicate());
+      EList<EPredicate> _epredicates = q.getEpredicates();
+      for (final EPredicate predicate : _epredicates) {
+        this.transform(predicate);
+      }
+      _xblockexpression = this.conc(")");
+    }
+    return _xblockexpression;
+  }
+  
+  public String transform(final Exquery e) {
+    return this.transform(e.getQuery());
+  }
+  
+  public String transform(final Clause c) {
+    String _xblockexpression = null;
+    {
+      this.conc("(");
+      this.transform(c.getPredicate());
+      this.conc(")");
       String _xifexpression = null;
       Fact _fact = c.getFact();
       boolean _notEquals = (!Objects.equal(_fact, null));
       if (_notEquals) {
-        _xifexpression = this.dump(c.getFact());
+        _xifexpression = this.transform(c.getFact());
       } else {
         String _xifexpression_1 = null;
         Rule _rule = c.getRule();
         boolean _notEquals_1 = (!Objects.equal(_rule, null));
         if (_notEquals_1) {
-          _xifexpression_1 = this.dump(c.getRule());
+          _xifexpression_1 = this.transform(c.getRule());
         }
         _xifexpression = _xifexpression_1;
       }
@@ -99,92 +131,184 @@ public class S78154S78236Generator extends AbstractGenerator {
     return _xblockexpression;
   }
   
-  public String dump(final Exquery e) {
-    return this.dump(e.getQuery());
+  public String transform(final Fact f) {
+    return this.newline();
   }
   
-  public String dump(final Query q) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nType mismatch: cannot convert from EPredicate to PrologDsl");
-  }
-  
-  public String dump(final Predicate p) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nType mismatch: cannot convert from Functor to PrologDsl"
-      + "\nType mismatch: cannot convert from ETerm to PrologDsl");
-  }
-  
-  public String dump(final Fact f) {
+  public String transform(final Rule r) {
     String _xblockexpression = null;
     {
-      this.conc(" ( ");
-      _xblockexpression = this.conc(" ) ");
+      this.conc("(");
+      this.transform(r.getQuery().getPredicate());
+      EList<EPredicate> _epredicates = r.getQuery().getEpredicates();
+      for (final EPredicate epredicate : _epredicates) {
+        this.transform(epredicate);
+      }
+      _xblockexpression = this.conc(")");
     }
     return _xblockexpression;
   }
   
-  public String dump(final Rule r) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nType mismatch: cannot convert from EPredicate to PrologDsl");
+  public String space() {
+    return this.conc(" ");
   }
   
-  public String dump(final Term t) {
+  public String newline() {
+    return this.conc("\r\n");
+  }
+  
+  public String transform(final Predicate p) {
+    String _xblockexpression = null;
+    {
+      this.conc("(");
+      this.transform(p.getFunctor());
+      this.space();
+      this.transform(p.getTerm());
+      EList<ETerm> _eterms = p.getEterms();
+      for (final ETerm eterm : _eterms) {
+        {
+          this.space();
+          this.transform(eterm);
+        }
+      }
+      _xblockexpression = this.conc(")");
+    }
+    return _xblockexpression;
+  }
+  
+  public String transform(final EPredicate ep) {
+    return this.transform(ep.getPredicate());
+  }
+  
+  public String transform(final Functor f) {
+    return this.transform(f.getIdent());
+  }
+  
+  public String transform(final Term t) {
     String _xifexpression = null;
     Atom _atom = t.getAtom();
     boolean _notEquals = (!Objects.equal(_atom, null));
     if (_notEquals) {
-      _xifexpression = this.dump(t.getAtom());
+      _xifexpression = this.transform(t.getAtom());
     } else {
       String _xifexpression_1 = null;
       List _list = t.getList();
       boolean _notEquals_1 = (!Objects.equal(_list, null));
       if (_notEquals_1) {
-        _xifexpression_1 = this.dump(t.getList());
+        _xifexpression_1 = this.transform(t.getList());
       }
       _xifexpression = _xifexpression_1;
     }
     return _xifexpression;
   }
   
-  public String dump(final Atom a) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nType mismatch: cannot convert from String to PrologDsl");
+  public String transform(final ETerm et) {
+    return this.transform(et.getTerm());
   }
   
-  public String dump(final List l) {
+  public String transform(final Atom a) {
+    String _xblockexpression = null;
+    {
+      Ident _ident = a.getIdent();
+      boolean _notEquals = (!Objects.equal(_ident, null));
+      if (_notEquals) {
+        this.transform(a.getIdent());
+      }
+      String _number = a.getNumber();
+      boolean _notEquals_1 = (!Objects.equal(_number, null));
+      if (_notEquals_1) {
+        this.conc(a.getNumber());
+      }
+      String _xifexpression = null;
+      EVar _evar = a.getEvar();
+      boolean _notEquals_2 = (!Objects.equal(_evar, null));
+      if (_notEquals_2) {
+        _xifexpression = this.transform(a.getEvar());
+      }
+      _xblockexpression = _xifexpression;
+    }
+    return _xblockexpression;
+  }
+  
+  public String transform(final EAtom ea) {
+    return this.transform(ea.getAtom());
+  }
+  
+  public String transform(final List l) {
     String _xifexpression = null;
     EmptyList _empty = l.getEmpty();
     boolean _notEquals = (!Objects.equal(_empty, null));
     if (_notEquals) {
-      _xifexpression = this.conc(" () ");
+      _xifexpression = this.transform(l.getEmpty());
     } else {
-      _xifexpression = this.dump(l.getNonEmptyList());
+      _xifexpression = this.transform(l.getNonEmptyList());
     }
     return _xifexpression;
   }
   
-  public String dump(final NonEmptyList n) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nType mismatch: cannot convert from EFolge to PrologDsl"
-      + "\nType mismatch: cannot convert from EList to PrologDsl");
+  public String transform(final EmptyList e) {
+    return this.conc("()");
   }
   
-  public Object dump(final Folge f) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nType mismatch: cannot convert from EAtom to PrologDsl");
+  public Object transform(final beleg.s78154S78236.EList el) {
+    Object _xblockexpression = null;
+    {
+      this.transform(el.getAtom());
+      _xblockexpression = this.transform(el.getTerm());
+    }
+    return _xblockexpression;
   }
   
-  public String dump(final EVar v) {
-    String _variable = v.getVariable();
-    String _plus = (" " + _variable);
-    String _plus_1 = (_plus + " ");
-    return this.conc(_plus_1);
+  public String transform(final NonEmptyList n) {
+    String _xifexpression = null;
+    EFolge _efolge = n.getEfolge();
+    boolean _notEquals = (!Objects.equal(_efolge, null));
+    if (_notEquals) {
+      this.transform(n.getEfolge());
+    } else {
+      String _xifexpression_1 = null;
+      beleg.s78154S78236.EList _elist = n.getElist();
+      boolean _notEquals_1 = (!Objects.equal(_elist, null));
+      if (_notEquals_1) {
+        String _xblockexpression = null;
+        {
+          this.conc("(cons)");
+          this.transform(n.getElist());
+          _xblockexpression = this.conc(")");
+        }
+        _xifexpression_1 = _xblockexpression;
+      }
+      _xifexpression = _xifexpression_1;
+    }
+    return _xifexpression;
   }
   
-  public String dump(final Ident i) {
-    String _ident = i.getIdent();
-    String _plus = (" " + _ident);
-    String _plus_1 = (_plus + " ");
-    return this.conc(_plus_1);
+  public void transform(final Folge f) {
+    this.conc("cons ");
+    this.transform(f.getAtom());
+    EList<EAtom> _eatoms = f.getEatoms();
+    for (final EAtom ea : _eatoms) {
+      {
+        this.conc("(");
+        this.transform(ea);
+      }
+    }
+    this.conc("()");
+    EList<EAtom> _eatoms_1 = f.getEatoms();
+    for (final EAtom ea_1 : _eatoms_1) {
+      this.conc(")");
+    }
+  }
+  
+  public void transform(final EFolge ef) {
+    this.transform(ef.getFolge());
+  }
+  
+  public String transform(final EVar v) {
+    return this.conc(v.getVariable());
+  }
+  
+  public String transform(final Ident i) {
+    return this.conc(i.getIdent());
   }
 }
