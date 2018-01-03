@@ -3,7 +3,7 @@
  */
 package beleg.tests;
 
-import beleg.s78154S78236.Model;
+import beleg.s78154S78236.PrologDsl;
 import beleg.tests.S78154S78236InjectorProvider;
 import com.google.inject.Inject;
 import org.eclipse.emf.common.util.EList;
@@ -23,7 +23,7 @@ import org.junit.runner.RunWith;
 @SuppressWarnings("all")
 public class S78154S78236ParsingTest {
   @Inject
-  private ParseHelper<Model> parseHelper;
+  private ParseHelper<PrologDsl> parseHelper;
   
   @Test
   public void loadModel() {
@@ -31,7 +31,7 @@ public class S78154S78236ParsingTest {
       StringConcatenation _builder = new StringConcatenation();
       _builder.append("Hello Xtext!");
       _builder.newLine();
-      final Model result = this.parseHelper.parse(_builder);
+      final PrologDsl result = this.parseHelper.parse(_builder);
       Assert.assertNotNull(result);
       final EList<Resource.Diagnostic> errors = result.eResource().getErrors();
       StringConcatenation _builder_1 = new StringConcatenation();

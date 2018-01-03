@@ -24,15 +24,6 @@ public interface S78154S78236Factory extends EFactory
   S78154S78236Factory eINSTANCE = beleg.s78154S78236.impl.S78154S78236FactoryImpl.init();
 
   /**
-   * Returns a new object of class '<em>Model</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Model</em>'.
-   * @generated
-   */
-  Model createModel();
-
-  /**
    * Returns a new object of class '<em>Prolog Dsl</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

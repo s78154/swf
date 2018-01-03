@@ -51,9 +51,8 @@ public class S78154S78236Generator extends AbstractGenerator {
     for (final PrologDsl e : _filter) {
       this.transform(e);
     }
-    System.out.println(("Code: \r\n" + this.code));
+    System.out.println(("Code: \n" + this.code));
     fsa.generateFile("beleg_prolog.lsp", this.code);
-    System.out.println(resource.getResourceSet().getURIConverter().normalize(resource.getURI().trimFileExtension().appendFileExtension("gen")).toFileString());
     System.out.println("Schreibvorgang beendet");
   }
   
@@ -154,7 +153,7 @@ public class S78154S78236Generator extends AbstractGenerator {
   }
   
   public String newline() {
-    return this.conc("\r\n");
+    return this.conc("\n");
   }
   
   public String transform(final Predicate p) {
@@ -254,6 +253,7 @@ public class S78154S78236Generator extends AbstractGenerator {
     Object _xblockexpression = null;
     {
       this.transform(el.getAtom());
+      this.space();
       _xblockexpression = this.transform(el.getTerm());
     }
     return _xblockexpression;
@@ -272,7 +272,7 @@ public class S78154S78236Generator extends AbstractGenerator {
       if (_notEquals_1) {
         String _xblockexpression = null;
         {
-          this.conc("(cons)");
+          this.conc("(cons ");
           this.transform(n.getElist());
           _xblockexpression = this.conc(")");
         }
@@ -286,11 +286,13 @@ public class S78154S78236Generator extends AbstractGenerator {
   public void transform(final Folge f) {
     this.conc("cons ");
     this.transform(f.getAtom());
+    this.space();
     EList<EAtom> _eatoms = f.getEatoms();
     for (final EAtom ea : _eatoms) {
       {
-        this.conc("(");
+        this.conc("(cons ");
         this.transform(ea);
+        this.space();
       }
     }
     this.conc("()");

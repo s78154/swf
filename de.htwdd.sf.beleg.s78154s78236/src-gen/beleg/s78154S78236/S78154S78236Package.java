@@ -58,34 +58,6 @@ public interface S78154S78236Package extends EPackage
   S78154S78236Package eINSTANCE = beleg.s78154S78236.impl.S78154S78236PackageImpl.init();
 
   /**
-   * The meta object id for the '{@link beleg.s78154S78236.impl.ModelImpl <em>Model</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see beleg.s78154S78236.impl.ModelImpl
-   * @see beleg.s78154S78236.impl.S78154S78236PackageImpl#getModel()
-   * @generated
-   */
-  int MODEL = 0;
-
-  /**
-   * The feature id for the '<em><b>Model</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MODEL__MODEL = 0;
-
-  /**
-   * The number of structural features of the '<em>Model</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MODEL_FEATURE_COUNT = 1;
-
-  /**
    * The meta object id for the '{@link beleg.s78154S78236.impl.PrologDslImpl <em>Prolog Dsl</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -93,7 +65,7 @@ public interface S78154S78236Package extends EPackage
    * @see beleg.s78154S78236.impl.S78154S78236PackageImpl#getPrologDsl()
    * @generated
    */
-  int PROLOG_DSL = 1;
+  int PROLOG_DSL = 0;
 
   /**
    * The feature id for the '<em><b>Program</b></em>' containment reference.
@@ -130,7 +102,7 @@ public interface S78154S78236Package extends EPackage
    * @see beleg.s78154S78236.impl.S78154S78236PackageImpl#getProgram()
    * @generated
    */
-  int PROGRAM = 2;
+  int PROGRAM = 1;
 
   /**
    * The feature id for the '<em><b>Clauses</b></em>' containment reference list.
@@ -158,7 +130,7 @@ public interface S78154S78236Package extends EPackage
    * @see beleg.s78154S78236.impl.S78154S78236PackageImpl#getExquery()
    * @generated
    */
-  int EXQUERY = 3;
+  int EXQUERY = 2;
 
   /**
    * The feature id for the '<em><b>Query</b></em>' containment reference.
@@ -186,7 +158,7 @@ public interface S78154S78236Package extends EPackage
    * @see beleg.s78154S78236.impl.S78154S78236PackageImpl#getQuery()
    * @generated
    */
-  int QUERY = 4;
+  int QUERY = 3;
 
   /**
    * The feature id for the '<em><b>Predicate</b></em>' containment reference.
@@ -223,7 +195,7 @@ public interface S78154S78236Package extends EPackage
    * @see beleg.s78154S78236.impl.S78154S78236PackageImpl#getEPredicate()
    * @generated
    */
-  int EPREDICATE = 5;
+  int EPREDICATE = 4;
 
   /**
    * The feature id for the '<em><b>Predicate</b></em>' containment reference.
@@ -251,7 +223,7 @@ public interface S78154S78236Package extends EPackage
    * @see beleg.s78154S78236.impl.S78154S78236PackageImpl#getClause()
    * @generated
    */
-  int CLAUSE = 6;
+  int CLAUSE = 5;
 
   /**
    * The feature id for the '<em><b>Predicate</b></em>' containment reference.
@@ -297,7 +269,7 @@ public interface S78154S78236Package extends EPackage
    * @see beleg.s78154S78236.impl.S78154S78236PackageImpl#getFact()
    * @generated
    */
-  int FACT = 7;
+  int FACT = 6;
 
   /**
    * The number of structural features of the '<em>Fact</em>' class.
@@ -316,7 +288,7 @@ public interface S78154S78236Package extends EPackage
    * @see beleg.s78154S78236.impl.S78154S78236PackageImpl#getRule()
    * @generated
    */
-  int RULE = 8;
+  int RULE = 7;
 
   /**
    * The feature id for the '<em><b>Query</b></em>' containment reference.
@@ -344,7 +316,7 @@ public interface S78154S78236Package extends EPackage
    * @see beleg.s78154S78236.impl.S78154S78236PackageImpl#getPredicate()
    * @generated
    */
-  int PREDICATE = 9;
+  int PREDICATE = 8;
 
   /**
    * The feature id for the '<em><b>Functor</b></em>' containment reference.
@@ -390,7 +362,7 @@ public interface S78154S78236Package extends EPackage
    * @see beleg.s78154S78236.impl.S78154S78236PackageImpl#getFunctor()
    * @generated
    */
-  int FUNCTOR = 10;
+  int FUNCTOR = 9;
 
   /**
    * The feature id for the '<em><b>Ident</b></em>' containment reference.
@@ -418,7 +390,7 @@ public interface S78154S78236Package extends EPackage
    * @see beleg.s78154S78236.impl.S78154S78236PackageImpl#getTerm()
    * @generated
    */
-  int TERM = 11;
+  int TERM = 10;
 
   /**
    * The feature id for the '<em><b>Atom</b></em>' containment reference.
@@ -455,7 +427,7 @@ public interface S78154S78236Package extends EPackage
    * @see beleg.s78154S78236.impl.S78154S78236PackageImpl#getETerm()
    * @generated
    */
-  int ETERM = 12;
+  int ETERM = 11;
 
   /**
    * The feature id for the '<em><b>Term</b></em>' containment reference.
@@ -483,7 +455,7 @@ public interface S78154S78236Package extends EPackage
    * @see beleg.s78154S78236.impl.S78154S78236PackageImpl#getAtom()
    * @generated
    */
-  int ATOM = 13;
+  int ATOM = 12;
 
   /**
    * The feature id for the '<em><b>Ident</b></em>' containment reference.
@@ -529,7 +501,7 @@ public interface S78154S78236Package extends EPackage
    * @see beleg.s78154S78236.impl.S78154S78236PackageImpl#getList()
    * @generated
    */
-  int LIST = 14;
+  int LIST = 13;
 
   /**
    * The feature id for the '<em><b>Empty</b></em>' containment reference.
@@ -566,7 +538,7 @@ public interface S78154S78236Package extends EPackage
    * @see beleg.s78154S78236.impl.S78154S78236PackageImpl#getEmptyList()
    * @generated
    */
-  int EMPTY_LIST = 15;
+  int EMPTY_LIST = 14;
 
   /**
    * The number of structural features of the '<em>Empty List</em>' class.
@@ -585,7 +557,7 @@ public interface S78154S78236Package extends EPackage
    * @see beleg.s78154S78236.impl.S78154S78236PackageImpl#getNonEmptyList()
    * @generated
    */
-  int NON_EMPTY_LIST = 16;
+  int NON_EMPTY_LIST = 15;
 
   /**
    * The feature id for the '<em><b>Efolge</b></em>' containment reference.
@@ -622,7 +594,7 @@ public interface S78154S78236Package extends EPackage
    * @see beleg.s78154S78236.impl.S78154S78236PackageImpl#getFolge()
    * @generated
    */
-  int FOLGE = 17;
+  int FOLGE = 16;
 
   /**
    * The feature id for the '<em><b>Atom</b></em>' containment reference.
@@ -659,7 +631,7 @@ public interface S78154S78236Package extends EPackage
    * @see beleg.s78154S78236.impl.S78154S78236PackageImpl#getEFolge()
    * @generated
    */
-  int EFOLGE = 18;
+  int EFOLGE = 17;
 
   /**
    * The feature id for the '<em><b>Folge</b></em>' containment reference.
@@ -687,7 +659,7 @@ public interface S78154S78236Package extends EPackage
    * @see beleg.s78154S78236.impl.S78154S78236PackageImpl#getEList()
    * @generated
    */
-  int ELIST = 19;
+  int ELIST = 18;
 
   /**
    * The feature id for the '<em><b>Atom</b></em>' containment reference.
@@ -724,7 +696,7 @@ public interface S78154S78236Package extends EPackage
    * @see beleg.s78154S78236.impl.S78154S78236PackageImpl#getEAtom()
    * @generated
    */
-  int EATOM = 20;
+  int EATOM = 19;
 
   /**
    * The feature id for the '<em><b>Atom</b></em>' containment reference.
@@ -752,7 +724,7 @@ public interface S78154S78236Package extends EPackage
    * @see beleg.s78154S78236.impl.S78154S78236PackageImpl#getIdent()
    * @generated
    */
-  int IDENT = 21;
+  int IDENT = 20;
 
   /**
    * The feature id for the '<em><b>Ident</b></em>' attribute.
@@ -780,7 +752,7 @@ public interface S78154S78236Package extends EPackage
    * @see beleg.s78154S78236.impl.S78154S78236PackageImpl#getEVar()
    * @generated
    */
-  int EVAR = 22;
+  int EVAR = 21;
 
   /**
    * The feature id for the '<em><b>Variable</b></em>' attribute.
@@ -800,27 +772,6 @@ public interface S78154S78236Package extends EPackage
    */
   int EVAR_FEATURE_COUNT = 1;
 
-
-  /**
-   * Returns the meta object for class '{@link beleg.s78154S78236.Model <em>Model</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Model</em>'.
-   * @see beleg.s78154S78236.Model
-   * @generated
-   */
-  EClass getModel();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link beleg.s78154S78236.Model#getModel <em>Model</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Model</em>'.
-   * @see beleg.s78154S78236.Model#getModel()
-   * @see #getModel()
-   * @generated
-   */
-  EReference getModel_Model();
 
   /**
    * Returns the meta object for class '{@link beleg.s78154S78236.PrologDsl <em>Prolog Dsl</em>}'.
@@ -1428,24 +1379,6 @@ public interface S78154S78236Package extends EPackage
    */
   interface Literals
   {
-    /**
-     * The meta object literal for the '{@link beleg.s78154S78236.impl.ModelImpl <em>Model</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see beleg.s78154S78236.impl.ModelImpl
-     * @see beleg.s78154S78236.impl.S78154S78236PackageImpl#getModel()
-     * @generated
-     */
-    EClass MODEL = eINSTANCE.getModel();
-
-    /**
-     * The meta object literal for the '<em><b>Model</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference MODEL__MODEL = eINSTANCE.getModel_Model();
-
     /**
      * The meta object literal for the '{@link beleg.s78154S78236.impl.PrologDslImpl <em>Prolog Dsl</em>}' class.
      * <!-- begin-user-doc -->

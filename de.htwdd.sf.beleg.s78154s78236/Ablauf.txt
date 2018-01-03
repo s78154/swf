@@ -1,9 +1,9 @@
-1.
 - xText-Projekt anlegen
-- Grammatik definiert
-
-
-
-
-
--Fragen: kann terminal Variable direkt verwendet werden? Terminale in Großbuchstaben?
+- Grammatik definiert (in Package beleg
+- Modell und Quelltext generieren
+- Outline-Ansicht in 2 Eclipse-Instanz überprüft und Beispiele angegeben
+- Scheme-Transformator definiert (Package beleg.generator)
+- in lsp-Datei extrahiert
+- Jamus-Scheme importiert
+- Dateipfad in prolog_dsl am Ende abgeändert zu beleg_prolog.lsp, Arguments-Pfad geändert (Pfad zu Prolog.lsp) -> Run As -> Configuration
+- ausgeführt (Rus as Java Application)

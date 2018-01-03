@@ -18,7 +18,6 @@ import beleg.s78154S78236.Folge;
 import beleg.s78154S78236.Functor;
 import beleg.s78154S78236.Ident;
 import beleg.s78154S78236.List;
-import beleg.s78154S78236.Model;
 import beleg.s78154S78236.NonEmptyList;
 import beleg.s78154S78236.Predicate;
 import beleg.s78154S78236.Program;
@@ -98,9 +97,6 @@ public class S78154S78236SemanticSequencer extends AbstractDelegatingSemanticSeq
 				return; 
 			case S78154S78236Package.LIST:
 				sequence_List(context, (List) semanticObject); 
-				return; 
-			case S78154S78236Package.MODEL:
-				sequence_Model(context, (Model) semanticObject); 
 				return; 
 			case S78154S78236Package.NON_EMPTY_LIST:
 				sequence_NonEmptyList(context, (NonEmptyList) semanticObject); 
@@ -361,18 +357,6 @@ public class S78154S78236SemanticSequencer extends AbstractDelegatingSemanticSeq
 	 *     (empty=EmptyList | nonEmptyList=NonEmptyList)
 	 */
 	protected void sequence_List(ISerializationContext context, List semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Model returns Model
-	 *
-	 * Constraint:
-	 *     model+=PrologDsl+
-	 */
-	protected void sequence_Model(ISerializationContext context, Model semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

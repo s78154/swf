@@ -43,7 +43,7 @@ import beleg.services.S78154S78236GrammarAccess;
 
     @Override
     protected String getFirstRuleName() {
-    	return "Model";
+    	return "PrologDsl";
    	}
 
    	@Override
@@ -59,42 +59,6 @@ import beleg.services.S78154S78236GrammarAccess;
         appendSkippedTokens();
     }
 }
-
-// Entry rule entryRuleModel
-entryRuleModel returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getModelRule()); }
-	iv_ruleModel=ruleModel
-	{ $current=$iv_ruleModel.current; }
-	EOF;
-
-// Rule Model
-ruleModel returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		(
-			{
-				newCompositeNode(grammarAccess.getModelAccess().getModelPrologDslParserRuleCall_0());
-			}
-			lv_model_0_0=rulePrologDsl
-			{
-				if ($current==null) {
-					$current = createModelElementForParent(grammarAccess.getModelRule());
-				}
-				add(
-					$current,
-					"model",
-					lv_model_0_0,
-					"beleg.S78154S78236.PrologDsl");
-				afterParserOrEnumRuleCall();
-			}
-		)
-	)*
-;
 
 // Entry rule entryRulePrologDsl
 entryRulePrologDsl returns [EObject current=null]:

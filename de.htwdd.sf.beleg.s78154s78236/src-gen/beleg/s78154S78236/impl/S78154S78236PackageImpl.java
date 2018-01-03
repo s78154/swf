@@ -18,7 +18,6 @@ import beleg.s78154S78236.Folge;
 import beleg.s78154S78236.Functor;
 import beleg.s78154S78236.Ident;
 import beleg.s78154S78236.List;
-import beleg.s78154S78236.Model;
 import beleg.s78154S78236.NonEmptyList;
 import beleg.s78154S78236.Predicate;
 import beleg.s78154S78236.Program;
@@ -44,13 +43,6 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
  */
 public class S78154S78236PackageImpl extends EPackageImpl implements S78154S78236Package
 {
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass modelEClass = null;
-
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -266,26 +258,6 @@ public class S78154S78236PackageImpl extends EPackageImpl implements S78154S7823
     // Update the registry and return the package
     EPackage.Registry.INSTANCE.put(S78154S78236Package.eNS_URI, theS78154S78236Package);
     return theS78154S78236Package;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getModel()
-  {
-    return modelEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getModel_Model()
-  {
-    return (EReference)modelEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -868,9 +840,6 @@ public class S78154S78236PackageImpl extends EPackageImpl implements S78154S7823
     isCreated = true;
 
     // Create classes and their features
-    modelEClass = createEClass(MODEL);
-    createEReference(modelEClass, MODEL__MODEL);
-
     prologDslEClass = createEClass(PROLOG_DSL);
     createEReference(prologDslEClass, PROLOG_DSL__PROGRAM);
     createEReference(prologDslEClass, PROLOG_DSL__EX_QUERY);
@@ -980,9 +949,6 @@ public class S78154S78236PackageImpl extends EPackageImpl implements S78154S7823
     // Add supertypes to classes
 
     // Initialize classes and features; add operations and parameters
-    initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getModel_Model(), this.getPrologDsl(), null, "model", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
     initEClass(prologDslEClass, PrologDsl.class, "PrologDsl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getPrologDsl_Program(), this.getProgram(), null, "program", null, 0, 1, PrologDsl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getPrologDsl_ExQuery(), this.getExquery(), null, "exQuery", null, 0, 1, PrologDsl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

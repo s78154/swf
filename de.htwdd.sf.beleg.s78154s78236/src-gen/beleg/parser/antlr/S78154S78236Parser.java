@@ -27,7 +27,7 @@ public class S78154S78236Parser extends AbstractAntlrParser {
 
 	@Override 
 	protected String getDefaultRuleName() {
-		return "Model";
+		return "PrologDsl";
 	}
 
 	public S78154S78236GrammarAccess getGrammarAccess() {

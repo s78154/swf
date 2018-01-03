@@ -6,9 +6,6 @@
     complianceLevel="6.0" copyrightFields="false" runtimeVersion="2.10">
   <genPackages prefix="S78154S78236" basePackage="beleg" disposableProviderFactory="true"
       fileExtensions="belegdsl" ecorePackage="S78154S78236.ecore#/">
-    <genClasses ecoreClass="S78154S78236.ecore#//Model">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference S78154S78236.ecore#//Model/model"/>
-    </genClasses>
     <genClasses ecoreClass="S78154S78236.ecore#//PrologDsl">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference S78154S78236.ecore#//PrologDsl/program"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference S78154S78236.ecore#//PrologDsl/exQuery"/>

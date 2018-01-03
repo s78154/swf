@@ -23,21 +23,6 @@ import org.eclipse.xtext.service.GrammarProvider;
 @Singleton
 public class S78154S78236GrammarAccess extends AbstractGrammarElementFinder {
 	
-	public class ModelElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "beleg.S78154S78236.Model");
-		private final Assignment cModelAssignment = (Assignment)rule.eContents().get(1);
-		private final RuleCall cModelPrologDslParserRuleCall_0 = (RuleCall)cModelAssignment.eContents().get(0);
-		
-		//Model:
-		//	model+=PrologDsl*;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//model+=PrologDsl*
-		public Assignment getModelAssignment() { return cModelAssignment; }
-		
-		//PrologDsl
-		public RuleCall getModelPrologDslParserRuleCall_0() { return cModelPrologDslParserRuleCall_0; }
-	}
 	public class PrologDslElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "beleg.S78154S78236.PrologDsl");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -606,7 +591,6 @@ public class S78154S78236GrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	
-	private final ModelElements pModel;
 	private final PrologDslElements pPrologDsl;
 	private final ProgramElements pProgram;
 	private final ExqueryElements pExquery;
@@ -642,7 +626,6 @@ public class S78154S78236GrammarAccess extends AbstractGrammarElementFinder {
 			TerminalsGrammarAccess gaTerminals) {
 		this.grammar = internalFindGrammar(grammarProvider);
 		this.gaTerminals = gaTerminals;
-		this.pModel = new ModelElements();
 		this.pPrologDsl = new PrologDslElements();
 		this.pProgram = new ProgramElements();
 		this.pExquery = new ExqueryElements();
@@ -696,16 +679,6 @@ public class S78154S78236GrammarAccess extends AbstractGrammarElementFinder {
 		return gaTerminals;
 	}
 
-	
-	//Model:
-	//	model+=PrologDsl*;
-	public ModelElements getModelAccess() {
-		return pModel;
-	}
-	
-	public ParserRule getModelRule() {
-		return getModelAccess().getRule();
-	}
 	
 	//PrologDsl:
 	//	program=Program exQuery=Exquery;

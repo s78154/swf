@@ -49,31 +49,6 @@ import beleg.services.S78154S78236GrammarAccess;
 	}
 }
 
-// Entry rule entryRuleModel
-entryRuleModel
-:
-{ before(grammarAccess.getModelRule()); }
-	 ruleModel
-{ after(grammarAccess.getModelRule()); } 
-	 EOF 
-;
-
-// Rule Model
-ruleModel 
-	@init {
-		int stackSize = keepStackSize();
-	}
-	:
-	(
-		{ before(grammarAccess.getModelAccess().getModelAssignment()); }
-		(rule__Model__ModelAssignment)*
-		{ after(grammarAccess.getModelAccess().getModelAssignment()); }
-	)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
 // Entry rule entryRulePrologDsl
 entryRulePrologDsl
 :
@@ -1740,21 +1715,6 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-
-rule__Model__ModelAssignment
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	(
-		{ before(grammarAccess.getModelAccess().getModelPrologDslParserRuleCall_0()); }
-		rulePrologDsl
-		{ after(grammarAccess.getModelAccess().getModelPrologDslParserRuleCall_0()); }
-	)
-;
-finally {
-	restoreStackSize(stackSize);
-}
 
 rule__PrologDsl__ProgramAssignment_0
 	@init {

@@ -50,7 +50,6 @@ public class S78154S78236Parser extends AbstractContentAssistParser {
 					put(grammarAccess.getEFolgeAccess().getGroup(), "rule__EFolge__Group__0");
 					put(grammarAccess.getEListAccess().getGroup(), "rule__EList__Group__0");
 					put(grammarAccess.getEAtomAccess().getGroup(), "rule__EAtom__Group__0");
-					put(grammarAccess.getModelAccess().getModelAssignment(), "rule__Model__ModelAssignment");
 					put(grammarAccess.getPrologDslAccess().getProgramAssignment_0(), "rule__PrologDsl__ProgramAssignment_0");
 					put(grammarAccess.getPrologDslAccess().getExQueryAssignment_1(), "rule__PrologDsl__ExQueryAssignment_1");
 					put(grammarAccess.getProgramAccess().getClausesAssignment(), "rule__Program__ClausesAssignment");

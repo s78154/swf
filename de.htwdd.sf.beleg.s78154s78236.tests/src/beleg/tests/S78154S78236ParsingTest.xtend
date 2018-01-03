@@ -3,7 +3,7 @@
  */
 package beleg.tests
 
-import beleg.s78154S78236.Model
+import beleg.s78154S78236.PrologDsl
 import com.google.inject.Inject
 import org.eclipse.xtext.testing.InjectWith
 import org.eclipse.xtext.testing.XtextRunner
@@ -16,7 +16,7 @@ import org.junit.runner.RunWith
 @InjectWith(S78154S78236InjectorProvider)
 class S78154S78236ParsingTest {
 	@Inject
-	ParseHelper<Model> parseHelper
+	ParseHelper<PrologDsl> parseHelper
 	
 	@Test
 	def void loadModel() {

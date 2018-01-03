@@ -3,15 +3,32 @@
  */
 package beleg.generator
 
-import beleg.s78154S78236.*
-import org.eclipse.emf.common.util.TreeIterator;
-import org.eclipse.emf.ecore.EObject
+import beleg.s78154S78236.Atom
+import beleg.s78154S78236.Clause
+import beleg.s78154S78236.EAtom
+import beleg.s78154S78236.EFolge
+import beleg.s78154S78236.EList
+import beleg.s78154S78236.EPredicate
+import beleg.s78154S78236.ETerm
+import beleg.s78154S78236.EVar
+import beleg.s78154S78236.EmptyList
+import beleg.s78154S78236.Exquery
+import beleg.s78154S78236.Fact
+import beleg.s78154S78236.Folge
+import beleg.s78154S78236.Functor
+import beleg.s78154S78236.Ident
+import beleg.s78154S78236.List
+import beleg.s78154S78236.NonEmptyList
+import beleg.s78154S78236.Predicate
+import beleg.s78154S78236.Program
+import beleg.s78154S78236.PrologDsl
+import beleg.s78154S78236.Query
+import beleg.s78154S78236.Rule
+import beleg.s78154S78236.Term
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
-import org.eclipse.xtext.xbase.lib.IteratorExtensions;
-
 
 /**
  * Generates code from your model files on save.
@@ -33,9 +50,8 @@ class S78154S78236Generator extends AbstractGenerator {
 		for (e : resource.allContents.toIterable.filter(typeof(PrologDsl))) { 
 			e.transform
 		}
-		System.out.println("Code: \r\n" + code)
+		System.out.println("Code: \n" + code)
 		fsa.generateFile("beleg_prolog.lsp", code)
-		System.out.println(resource.resourceSet.URIConverter.normalize(resource.URI.trimFileExtension.appendFileExtension("gen")).toFileString);
 		System.out.println("Schreibvorgang beendet")
 	}
 	
@@ -106,7 +122,7 @@ class S78154S78236Generator extends AbstractGenerator {
 	}
 	
 	def newline(){
-		conc("\r\n")
+		conc("\n")
 	}
 	
 	def transform(Predicate p) {
@@ -171,6 +187,7 @@ class S78154S78236Generator extends AbstractGenerator {
 	
 	def transform(EList el){
 		el.atom.transform
+		space()
 		el.term.transform
 	}
 	
@@ -179,7 +196,7 @@ class S78154S78236Generator extends AbstractGenerator {
 			n.efolge.transform			
 		}
 		else if (n.elist != null) {
-			conc("(cons)")
+			conc("(cons ")
 			n.elist.transform
 			conc(")")
 		}
@@ -189,10 +206,12 @@ class S78154S78236Generator extends AbstractGenerator {
 		
 		conc("cons ") 
 		f.atom.transform
-		
+		space()
+				
 		for(ea : f.eatoms){
-			conc("(")
+			conc("(cons ")
 			ea.transform
+			space()
 		}
 		
 		conc ("()")

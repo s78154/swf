@@ -65,7 +65,6 @@ public class S78154S78236FactoryImpl extends EFactoryImpl implements S78154S7823
   {
     switch (eClass.getClassifierID())
     {
-      case S78154S78236Package.MODEL: return createModel();
       case S78154S78236Package.PROLOG_DSL: return createPrologDsl();
       case S78154S78236Package.PROGRAM: return createProgram();
       case S78154S78236Package.EXQUERY: return createExquery();
@@ -91,17 +90,6 @@ public class S78154S78236FactoryImpl extends EFactoryImpl implements S78154S7823
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Model createModel()
-  {
-    ModelImpl model = new ModelImpl();
-    return model;
   }
 
   /**

@@ -76,11 +76,6 @@ public class S78154S78236AdapterFactory extends AdapterFactoryImpl
     new S78154S78236Switch<Adapter>()
     {
       @Override
-      public Adapter caseModel(Model object)
-      {
-        return createModelAdapter();
-      }
-      @Override
       public Adapter casePrologDsl(PrologDsl object)
       {
         return createPrologDslAdapter();
@@ -211,21 +206,6 @@ public class S78154S78236AdapterFactory extends AdapterFactoryImpl
     return modelSwitch.doSwitch((EObject)target);
   }
 
-
-  /**
-   * Creates a new adapter for an object of class '{@link beleg.s78154S78236.Model <em>Model</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see beleg.s78154S78236.Model
-   * @generated
-   */
-  public Adapter createModelAdapter()
-  {
-    return null;
-  }
 
   /**
    * Creates a new adapter for an object of class '{@link beleg.s78154S78236.PrologDsl <em>Prolog Dsl</em>}'.
