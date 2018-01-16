@@ -4,5 +4,5 @@
 ((auf c 4))
 ((auf 4 5))
 ((auf 5 6))
-((ueber X Y))((auf X Y))((ueber X Y))((auf X Z)(ueber Z Y))))
+((ueber X Y)(auf X Y))((ueber X Y)(auf X Z)(ueber Z Y))))
 (quote ((ueber X Y))))

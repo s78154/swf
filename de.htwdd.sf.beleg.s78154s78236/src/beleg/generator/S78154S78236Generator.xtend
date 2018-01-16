@@ -93,13 +93,14 @@ class S78154S78236Generator extends AbstractGenerator {
 	def transform(Clause c) {
 		conc("(")
 		c.predicate.transform
-		conc(")")
-		
+				
 		if (c.fact != null) {
+			conc(")");
 			c.fact.transform
 		}
 		else if (c.rule != null) {
 			c.rule.transform
+			conc(")");
 		}
 	}
 	
@@ -108,13 +109,11 @@ class S78154S78236Generator extends AbstractGenerator {
 	}
 
 	def transform(Rule r) {
-		conc("(")
 		r.query.predicate.transform
 		for (epredicate : r.query.epredicates){
 			epredicate.transform
 		}
 			
-		conc(")")
 	}
 	
 	def space(){

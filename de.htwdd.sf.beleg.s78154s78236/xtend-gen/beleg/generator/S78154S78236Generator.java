@@ -110,18 +110,27 @@ public class S78154S78236Generator extends AbstractGenerator {
     {
       this.conc("(");
       this.transform(c.getPredicate());
-      this.conc(")");
       String _xifexpression = null;
       Fact _fact = c.getFact();
       boolean _notEquals = (!Objects.equal(_fact, null));
       if (_notEquals) {
-        _xifexpression = this.transform(c.getFact());
+        String _xblockexpression_1 = null;
+        {
+          this.conc(")");
+          _xblockexpression_1 = this.transform(c.getFact());
+        }
+        _xifexpression = _xblockexpression_1;
       } else {
         String _xifexpression_1 = null;
         Rule _rule = c.getRule();
         boolean _notEquals_1 = (!Objects.equal(_rule, null));
         if (_notEquals_1) {
-          _xifexpression_1 = this.transform(c.getRule());
+          String _xblockexpression_2 = null;
+          {
+            this.transform(c.getRule());
+            _xblockexpression_2 = this.conc(")");
+          }
+          _xifexpression_1 = _xblockexpression_2;
         }
         _xifexpression = _xifexpression_1;
       }
@@ -134,18 +143,12 @@ public class S78154S78236Generator extends AbstractGenerator {
     return this.newline();
   }
   
-  public String transform(final Rule r) {
-    String _xblockexpression = null;
-    {
-      this.conc("(");
-      this.transform(r.getQuery().getPredicate());
-      EList<EPredicate> _epredicates = r.getQuery().getEpredicates();
-      for (final EPredicate epredicate : _epredicates) {
-        this.transform(epredicate);
-      }
-      _xblockexpression = this.conc(")");
+  public void transform(final Rule r) {
+    this.transform(r.getQuery().getPredicate());
+    EList<EPredicate> _epredicates = r.getQuery().getEpredicates();
+    for (final EPredicate epredicate : _epredicates) {
+      this.transform(epredicate);
     }
-    return _xblockexpression;
   }
   
   public String space() {
