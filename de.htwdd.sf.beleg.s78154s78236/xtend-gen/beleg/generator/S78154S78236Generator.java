@@ -267,7 +267,7 @@ public class S78154S78236Generator extends AbstractGenerator {
     EFolge _efolge = n.getEfolge();
     boolean _notEquals = (!Objects.equal(_efolge, null));
     if (_notEquals) {
-      this.transform(n.getEfolge());
+      _xifexpression = this.transform(n.getEfolge());
     } else {
       String _xifexpression_1 = null;
       beleg.s78154S78236.EList _elist = n.getElist();
@@ -286,27 +286,32 @@ public class S78154S78236Generator extends AbstractGenerator {
     return _xifexpression;
   }
   
-  public void transform(final Folge f) {
-    this.conc("cons ");
-    this.transform(f.getAtom());
-    this.space();
-    EList<EAtom> _eatoms = f.getEatoms();
-    for (final EAtom ea : _eatoms) {
-      {
-        this.conc("(cons ");
-        this.transform(ea);
-        this.space();
+  public String transform(final Folge f) {
+    String _xblockexpression = null;
+    {
+      this.conc("(cons ");
+      this.transform(f.getAtom());
+      this.space();
+      EList<EAtom> _eatoms = f.getEatoms();
+      for (final EAtom ea : _eatoms) {
+        {
+          this.conc("(cons ");
+          this.transform(ea);
+          this.space();
+        }
       }
+      this.conc("()");
+      EList<EAtom> _eatoms_1 = f.getEatoms();
+      for (final EAtom ea_1 : _eatoms_1) {
+        this.conc(")");
+      }
+      _xblockexpression = this.conc(")");
     }
-    this.conc("()");
-    EList<EAtom> _eatoms_1 = f.getEatoms();
-    for (final EAtom ea_1 : _eatoms_1) {
-      this.conc(")");
-    }
+    return _xblockexpression;
   }
   
-  public void transform(final EFolge ef) {
-    this.transform(ef.getFolge());
+  public String transform(final EFolge ef) {
+    return this.transform(ef.getFolge());
   }
   
   public String transform(final EVar v) {

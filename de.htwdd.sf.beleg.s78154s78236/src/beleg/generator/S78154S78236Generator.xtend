@@ -203,7 +203,7 @@ class S78154S78236Generator extends AbstractGenerator {
 	
 	def transform(Folge f) {
 		
-		conc("cons ") 
+		conc("(cons ") 
 		f.atom.transform
 		space()
 				
@@ -218,6 +218,8 @@ class S78154S78236Generator extends AbstractGenerator {
 		for(ea : f.eatoms){
 			conc(")");
 		}
+		
+		conc(")");
 	}
 	
 	def transform(EFolge ef){
